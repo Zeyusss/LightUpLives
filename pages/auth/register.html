@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lumina Platform - Register</title>
+<link rel="icon" type="image/png" href="../../assets/images/logo/logo-icon.png" />
+    <link rel="stylesheet" href="../../assets/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/libs/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/auth/auth.css"  />
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-card">
+      <div class="auth-row">
+        <!-- Left Side -->
+<div class="left-side">
+  <div class="overlay-image">
+    <img src="../../assets/images/medium-shot-people-working-together.webp" alt="medium-shot-people-working-together">
+    <div class="black-overlay"></div>
+  </div>
+          <div class="welcome-text">
+            <h2>Join Our Community</h2>
+            <p>Create an account to make a difference. Together we can bring light to lives around the world. Your journey of giving and impact starts here.</p>
+          </div>  
+          <div class="illustration">©Lumina Platform.</div>
+</div>
+<!-- Right Side -->
+        <div class="right-side">
+          <h3 class="auth-form-title">Create Account</h3>
+          <form class="auth-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="Mohamed" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Salah" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Create a strong password" required />
+              <div class="password-strength">
+                <div class="password-strength-meter" id="passwordStrength"></div>
+              </div>
+              <div class="password-strength-text">
+                <span>Password Strength:</span>
+                <span id="strengthText">Medium</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required />
+            </div>
+            <div class="terms-check">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="terms" required />
+                <label class="form-check-label" for="terms">
+                  I agree to the <a href="../terms-conditions.html">Terms of Service</a> and <a href="../privacy-policy.html">Privacy Policy</a>
+                </label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100"><span>Sign Up</span></button>
+            <div class="social-login">
+              <p>or register with</p>
+              <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+            <div class="footer-text">
+              Already have an account? <a href="../auth/login.html">Sign In</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+           <script src="../../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="../../assets/js/main.js"></script>
+      <script src="../../assets/js/auth/auth.js"></script>
+</body>
+</html>

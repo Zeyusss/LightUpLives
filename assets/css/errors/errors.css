@@ -1,0 +1,78 @@
+:root {
+  --primary-color: #00a67d;
+  --dark-text: #333;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: #fff;
+}
+
+.auth-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.auth-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.lottie-animation,
+#lottie-500 {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto 20px;
+}
+
+.error-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--dark-text);
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.error-message {
+  color: #777;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background-color: #008f6c;
+  border-color: #008f6c;
+}
+
+.footer-text {
+  margin-top: 20px;
+  color: #777;
+  font-size: 14px;
+  text-align: center;
+}
+
+.footer-text a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.footer-text a:hover {
+  text-decoration: underline;
+}

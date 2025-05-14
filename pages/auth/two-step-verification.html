@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Platform - Two-Step Verification</title>
+<link rel="icon" type="image/png" href="../../assets/images/logo/logo-icon.png" />
+    <link rel="stylesheet" href="../../assets/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/libs/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/auth/auth.css"  />
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-row">
+                <!-- Left Side -->
+        <div class="left-side">
+        <div class="overlay-image">
+        <img src="../../assets/images/woman-hand-holding-plant-growing-from-coins-bottle.webp" alt="woman-hand-holding-plant-growing-from-coins-bottle">
+        <div class="black-overlay"></div>
+        </div>
+                <div class="welcome-text">
+                        <h2>Secure Authentication</h2>
+                        <p>We take security seriously. This extra layer of protection ensures that only you have access to your account and donation activities.</p>
+                    </div>
+                    <div class="illustration">©Lumina Platform.</div>
+</div>
+<!-- Right Side -->
+                <div class="right-side">
+                    <div class="verification-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="auth-form-title">Two-Step Verification</h3>
+                    <p class="auth-form-subtitle">We've sent a verification code to your email address. Please enter the code below.</p>
+                    <form class="auth-form">
+                        <div class="verification-code">
+                            <input type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" autocomplete="one-time-code" required>
+                            <input type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" autocomplete="one-time-code" required>
+                            <input type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" autocomplete="one-time-code" required>
+                            <input type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" autocomplete="one-time-code" required>
+                            <input type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" autocomplete="one-time-code" required>
+                            <input type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" autocomplete="one-time-code" required>
+                        </div>
+                        
+                        <div class="timer">
+                            Code expires in: <span id="countdown">05:00</span>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100"><span>Verify</span></button>
+                        
+                        <div class="footer-text">
+                            Didn't receive the code? <a href="#">Resend Code</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+            <script src="../../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../../assets/js/main.js"></script>
+        <script src="../../assets/js/auth/auth.js"></script>
+</body>
+</html>

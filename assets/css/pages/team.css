@@ -1,0 +1,150 @@
+
+/* Team Members */
+
+.team {
+    padding-top: var(--section-xxxl);
+}
+.team .team-title{
+    font-size: var(--font-size-base);
+    color: var(--color-secondary);
+    font-weight: 600;
+    margin: 0;
+    padding-top: 20px;
+}
+.team .team-member{
+    font-size: var(--font-size-lg);
+    color: var(--color-primary);
+    padding: 10px 0;
+}
+.team .member-img{
+    width: 100%;
+}
+
+.team .social-media i {
+    font-size: 24px;
+    margin-right: 15px;
+    transition: color 0.5s;
+    color: var(--color-accent);
+}
+
+.team .social-media i:hover{
+    color: var(--color-hover);
+    cursor: pointer;
+}
+
+/* good deeds */
+
+.good-deeds {
+    padding-top: var(--section-xxxl);
+}
+.good-deeds .container {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+}
+.good-deeds .deeds-title {
+    font-size: var(--font-size-lg);
+    color: var(--color-secondary);
+}
+.good-deeds .header-title{
+    position: relative;
+    margin-bottom: 50px;
+    line-height: 1.2em;
+    font-size: var(--font-size-xxl);;
+}
+.good-deeds .inner-left {
+    padding: 60px; 
+    background-color: #F5F5F5;
+    border-radius: 8px;
+    min-height: 400px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    
+}
+.good-deeds .volunteer{
+    padding:18px 35px ;
+    border-radius: 8px;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    border: 2px solid var(--color-accent);
+        font-weight: 600;
+    line-height: 1.38em;
+    margin-top: 20px;
+    transition: all 0.5s;
+    display: inline-block;
+    max-width: 300px;
+}
+.good-deeds .volunteer:hover{
+    background-color: var(--color-hover);
+}
+.good-deeds .volunteer i {
+    color: var(--color-white);
+    margin-left: 10px;
+}
+.good-deeds .row {
+    display: flex;
+    align-items: center;
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+}
+.good-deeds .inner-right .row {
+    width: 100%;
+    margin: 0;
+}
+.good-deeds .inner-right {
+    min-height: 400px; 
+    display: flex;
+    align-items: center; 
+}
+.good-deeds .inner-right img {
+    width: 100%; 
+    height: 350px; 
+    object-fit: cover; 
+    border-radius: 8px;
+}
+
+
+/* Media Queries */
+@media (max-width: 767px) { 
+    .good-deeds .inner-left {
+        padding: 30px; 
+        min-height: auto; 
+    }
+
+    .good-deeds .inner-right {
+        min-height: auto; 
+        padding: 30px;
+    }
+
+    .good-deeds .inner-right img {
+        height: 150px; 
+        margin-bottom: 15px; 
+    }
+
+    .good-deeds .header-title {
+        font-size: var(--font-size-xl); 
+        margin-bottom: 30px;
+    }
+
+    .good-deeds .deeds-title {
+        font-size: var(--font-size-md); 
+    }
+
+    .good-deeds .volunteer {
+        padding: 14px 25px; 
+    }
+}
+
+@media (max-width: 575px) { 
+    .good-deeds .inner-left {
+        padding: 20px;
+    }
+
+    .good-deeds .inner-right img {
+        height: 120px; 
+    }
+}

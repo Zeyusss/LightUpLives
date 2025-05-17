@@ -1,0 +1,291 @@
+.image4 {
+    height: 60vh;
+    background-image: url('./Assasts/causes_bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 52, 48, 0.7);
+}
+
+.overlay-content1 {
+    margin-top: 180px;
+    margin-left: 100px;
+}
+
+.overlay-content1 h1 {
+    color: var(--color-white) !important;
+}
+
+.a1:hover {
+    color: var(--color-secondary) !important;
+}
+progres
+.overlay-content1 .underline2 {
+    margin-top: var(--space-sm) !important;
+    margin-bottom: var(--space-sm) !important;
+}
+
+.overlay-content1 a {
+    text-decoration: none;
+    color: var(--color-white) !important;
+}
+
+.overlay-content1 .f-h5,
+.overlay-content1 i {
+    color: var(--color-secondary) !important;
+}
+.card {
+border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--space-lg);
+    transition: all 0.3s ease;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color);
+}
+
+.overlay3 {
+    position: relative;
+    display: inline-block;
+}
+
+.overlay3 img {
+    display: block;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.overlay3::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay3:hover::after {
+    background-color: rgba(33, 52, 48, 0.4);
+    transition: 0.5s ease;
+}
+
+.card-body {
+flex: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    position: relative;
+}
+
+.card-body h5 {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    position: absolute;
+    top: -20px;
+    padding: 7px 12px;
+
+    border-radius: 5px;
+}
+
+.sec3 .card-body h4 {
+    margin-top: var(--space-sm);
+}
+
+.card:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.progress-info {
+color: var(--color-secondary);
+    display: flex;
+    justify-content: space-between;
+}
+.progress-text,
+.progress-percentage {
+  visibility: visible !important;
+  display: inline !important;
+  opacity: 1 !important;
+  z-index: 10 !important;
+  color: white !important;
+}
+
+.progress1,
+.progress2,
+.progress3,
+.progress4 {
+    width: 86%;
+    margin-bottom: var(--space-sm);
+    border-radius: 20px;
+    position: relative;
+}
+.image5 {
+    margin-top: var(--space-xxl);
+    height: 100vh;
+    background-image: url('./Assasts/cropped-view-of-volunteer-giving-clothes-to-woman-in-charity-center.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.image5 .overlay-content3 {
+    position: absolute;
+    top: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.image5 ul {
+
+    padding: 0;
+}
+
+.image5 ul li {
+    margin-left: 15px;
+}
+
+.image5 ul li i {
+    font-size: 45px;
+}
+
+.image5 .right form {
+    background-color: var(--color-white) !important;
+    width: 70%;
+    padding: 70px 20px 50px 50px;
+    border-radius: 20px;
+}
+
+.image5 .right form input {
+    width: 70%;
+}
+
+.image5 .right form button {
+    width: 90%;
+    padding: 10px;
+    margin: auto;
+    background-color: var(--color-secondary) !important;
+    border: none;
+}
+.a1:hover {
+    color: var(--color-secondary) !important;
+}
+.underline2 {
+    background-color: var(--color-secondary);
+    width: 60px;
+    height: 2px;
+    z-index: 10;
+    /* margin: auto; */
+}
+h6{
+    color: var(--color-primary) !important;
+}
+.overlay3 .overlay-content3 .p2{
+    color: var(--color-white) !important;
+}
+
+
+
+.card button {
+    background-color: var(--color-accent) !important;
+    border-radius: 5px;
+    padding: 12px 40px;
+    border: none;
+
+}
+
+.card button a,
+.card button i ,
+form .btn1 a,
+form .btn1 i{
+    text-decoration: none;
+    color: var(--color-white) !important;
+}
+
+
+
+.card .card-body button,
+form .btn1 {
+    position: relative;
+}
+
+
+
+.card .card-body button:hover::after,
+form .btn1:hover::after{
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    transition: .2s;
+}
+.p1{
+    color: var(--color-white) !important;
+}
+.donate-section {
+  background: url('../../images/causes/cropped-view-of-volunteer-giving-clothes-to-woman-in-charity-center.webp') no-repeat center center / cover;
+  position: relative;
+  color: white;
+margin-top: 50px;
+
+}
+
+.donation-overlay {
+  background-color: rgba(0, 0, 0, 0.65);
+  width: 100%;
+  height: 100%;
+  padding: 80px;
+}
+
+.donate-form {
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 30px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.donate-form h4 {
+  font-weight: bold;
+  color: #333;
+}
+
+.donate-form .underline {
+  width: 50px;
+  height: 3px;
+  background-color: #f5b400;
+  margin-bottom: 1rem;
+}
+
+.donate-form input[type="text"],
+.donate-form input[type="email"] {
+  border-radius: 0.5rem;
+  padding: 10px 15px;
+}
+
+.btn-donate,
+.donate-form .btn {
+  background-color: #f5b400;
+  color: white;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.btn-donate:hover,
+.donate-form .btn:hover {
+  background-color: #d99f00;
+}
+
+.payment-icons i {
+  font-size: 1.8rem;
+  color: #ffc107;
+}

@@ -1,0 +1,807 @@
+
+:root {
+    --color-primary: #009368;
+
+    --bg-color: #FFFFFF;
+}
+
+
+
+h5,
+.sec2 .left ul li i {
+    color: var(--color-primary) !important;
+}
+
+.content1 h3 {
+    margin-top: var(--space-lg);
+}
+
+.content1 div {
+    margin-top: var(--space-sm);
+    margin-bottom: var(--space-sm);
+}
+
+.content1 h5 {
+    color: var(--color-dark) !important;
+}
+
+.div4 div {
+    margin-top: var(--space-xl);
+    margin-left: var(--space-md);
+}
+
+.sec1 .div4 a {
+    color: var(--color-white) !important;
+    text-decoration: none;
+    text-align: left;
+    margin-right: var(--space-xxl);
+    transition: all 0.5s;
+}
+
+.sec1 .div4 h4 {
+    text-align: left;
+    margin-left: var(--space-md);
+}
+
+.sec1 .div4 a:hover {
+    color: var(--color-accent) !important;
+}
+
+.sec4 .div4 .underline2 {
+    margin-top: var(--space-sm) !important;
+}
+
+.sec4 .inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.sec3 button {
+    border-radius: 3px;
+    padding: 12px 40px;
+    border: none;
+    background-color: var(--color-secondary);
+}
+
+.sec3 button a {
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+
+
+.img {
+    min-height: 100vh;
+    background-image: url('../../images/home/cute-african-boy-blowing-dandelion-outdoor-at-city-park-e1657720778729.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 52, 48, 0.7);
+    display: flex; 
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+.overlay-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.overlay-content .left {
+    z-index: 1;
+}
+
+.overlay-content .left h1 {
+    font-size: 54px;
+    line-height: 1.2em;
+}
+.overlay-content .right {
+    background-color: var(--color-white);
+    z-index: 1;
+    border-radius: 10px;
+padding: 50px;
+}
+.overlay-content .right span {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+}
+
+.overlay-content .left,
+.overlay-content .right {
+    width: 45%; 
+    box-sizing: border-box;
+    margin: 0; 
+}
+.overlay-content .right h3 {
+    padding: 30px 0 10px 0;
+}
+.overlay-content .right .buttons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    padding: 40px 0 0 0;
+}
+
+.overlay-content .right .buttons button {
+    border: 1px solid var(--color-accent);
+    padding: 15px 90px;
+    border-radius: 5px;
+    transition: all .5s;
+}
+
+.overlay-content .right .buttons button:hover{
+    background-color: var(--color-accent);
+}
+.sec1 .btn {
+    background-color: var(--color-primary) !important;
+    color: var(--color-white) !important;
+    margin-bottom: var(--space-sm);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-dark) !important;
+}
+
+.buttons button {
+    background-color: transparent;
+}
+
+.buttons button a {
+    text-decoration: none;
+}
+
+.overlay-footer {
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: absolute;
+    bottom: -150px;
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    margin-bottom: var(--space-sm);
+    margin: auto;
+    width: 95%;
+    left: 0; 
+    right: 0;
+}
+
+.overlay-footer .div4 {
+    height: 200px;
+    background-color: var(--color-primary);
+    color: var(--bg-color);
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.overlay-footer h3 {
+    color: var(--color-primary);
+    font-size: 54px;
+}
+
+.underline {
+    background-color: var(--color-accent);
+    width: 60px;
+    height: 2px;
+    z-index: 10;
+    margin: auto;
+}
+
+
+h6 {
+    color: var(--color-primary) !important;
+}
+.sec1 h1 {
+    color: var(--color-white) !important;
+    line-height: 3rem;
+    z-index: 1;
+}
+.sec1 .p1 {
+    padding-top:30px ;
+}
+.sec1 .p1,
+.sec3 button a,
+.sec3 button i {
+    color: var(--color-white) !important;
+}
+
+.button1 {
+    background-color: var(--color-secondary) !important;
+    border-radius: 5px;
+}
+
+.button1 a,
+.button1 i {
+    text-decoration: none;
+    color: var(--color-white) !important;
+}
+
+.button2 {
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid var(--color-white) !important;
+    color: white;
+    transition: all 0.5s;
+}
+
+.button2 a,
+.button2 i {
+    text-decoration: none;
+    color: var(--color-white) !important;
+}
+
+.sec2 button,
+.sec3 button,
+.sec4 button,
+.sec5 button {
+    position: relative;
+    padding: 18px 35px;
+    border-radius: 5px;
+    background-color: var(--color-accent);
+    border: 2px solid var(--color-accent);
+    transition: all 0.5s;
+    margin-top: 30px;
+}
+
+.sec2 button:hover,
+.sec3 button:hover,
+.sec4 button:hover,
+.sec5 button:hover,
+.FAQ-sec4 .btn1:hover,
+.button1:hover {
+    background-color: var(--color-hover);
+
+}
+
+.sec2 button:hover::after,
+.sec3 button:hover::after,
+.sec4 button:hover::after,
+.sec5 button:hover::after,
+.FAQ-sec4 .btn1:hover::after,
+.button1:hover::after {
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    transition: .2s;
+}
+
+.button2:hover {
+
+    background-color: white;
+    border: 1px solid var(--color-white) !important;
+color: black;
+}
+
+.button2:hover a,
+.button2:hover i {
+    color: var(--color-black) !important;
+    transition: .2s;
+}
+
+.p2 {
+    color: var(--color-text) !important;
+}
+.sec2 {
+    padding-top: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.sec2 .left {
+    width: 45%;
+}
+.sec3,.sec4,.sec5,.sec6,.sec7,.sec8 {
+    padding-top: var(--section-xxxl);
+}
+
+.sec4 button {
+    padding: 12px 35px;
+}
+
+.sec5 button {
+    padding: 12px 40px;
+    background-color: var(--color-accent);
+    border: none;
+    margin-top: var(--space-lg) !important;
+    margin-bottom: var(--space-xxl) !important;
+    border-radius: 5px;
+}
+
+.sec2 .left button a,
+.sec4 button a,
+.sec4 button i,
+.sec5 button a {
+    color: var(--color-white) !important;
+    text-decoration: none;
+}
+.sec4 .underline2 {
+    margin-bottom: var(--space-sm);
+    margin-top: var(--space-sm);
+}
+
+.sec4 .h5 {
+    color: var(--color-black) !important;
+}
+
+.imgs-container {
+    position: relative;
+    width: 50%;
+}
+
+.sec2 .imgs-container .img1 {
+    border-radius: 10px;
+}
+
+.sec2 .imgs-container .img2 {
+    position: absolute;
+    bottom: -40px;
+    right: 40px;
+    border-radius: 10px;
+}
+
+.sec2 .imgs-container .img4 {
+    position: absolute;
+    left: -25px;
+    top: 50px;
+    width: 80px;
+    height: 80px;
+}
+
+.sec2 .left,
+.sec2 .left ul {
+    padding: 0;
+}
+
+.sec2 .left ul li {
+    margin-top: var(--space-sm);
+}
+
+.sec2 a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.card {
+border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--space-lg);
+    transition: all 0.3s ease;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color);
+}
+.overlay3 {
+    position: relative;
+    display: inline-block;
+    height: 250px;
+}
+
+.card-body .progress-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.overlay3 img {
+width: 100%;
+    height: 100%;
+object-fit: cover; 
+    object-position: center; 
+    transition: transform 0.5s ease;
+}
+
+.overlay3::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay3:hover::after {
+content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 52, 48, 0.4);
+    transition: 0.5s ease;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+
+.card-body {
+flex: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    position: relative;
+
+}
+
+.card-body h5 {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    position: absolute;
+    top: -20px;
+    padding: 7px 12px;
+
+    border-radius: 5px;
+}
+
+.sec3 .card-body h4 {
+    margin-top: var(--space-sm);
+    font-size: var(--font-size-lg);
+    line-height: 1.4;
+}
+
+.card-body h4 a {
+    color: var(--color-dark) !important;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.card-body hr {
+    margin: 10px 0;
+    border-color: var(--color-light);
+}
+
+.card-body span {
+    color: var(--color-primary) !important;
+    font-size: var(--font-size-sm);
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.card-body .p2 {
+    color: var(--color-text) !important;
+    margin-bottom: 15px;
+    flex-grow: 1; 
+    font-size: var(--font-size-md);
+}
+.card-body h4 a:hover {
+    color: var(--color-primary) !important;
+}
+
+.card:hover {
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transform: translateY(-5px); 
+}
+
+.sec3 .header,
+.sec3 .header h1,
+.sec5 .header h1,
+.sec5 .header .underline {
+    margin-bottom: var(--space-md);
+}
+
+
+.sec5 img {
+    width: 85%;
+    height: 70%;
+    margin-bottom: var(--space-sm);
+}
+
+.sec5 .content {
+    padding: 0;
+    text-align: center;
+}
+
+.sec5 .content ul {
+    padding: 0;
+}
+.sec5 .content ul li {
+    padding-top: 15px;
+    margin-right: 15px;
+}
+.sec5 .content ul li i {
+    color: var(--color-accent);
+    margin: 0px 5px;
+    font-size: var(--font-size-lg);
+}
+
+.sec5 button {
+    margin: auto;
+    display: block;
+}
+
+.sec6-background {
+    height: 50vh;
+    background-image: url('../../images/home/volunteers-packing-boxes-for-refugees-2021-09-03-13-43-09-utc-e1657202519125.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-attachment: fixed;
+}
+
+.img5 {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: -25px;
+    left: 48%;
+}
+
+.img6 {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    left: 0;
+    bottom: -25px;
+}
+
+.overlay .overlay-content .right2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 40%;
+    height: 50%;
+    z-index: 1;
+}
+
+.overlay .overlay-content .right2 button {
+    padding: 18px 40px;
+    border-radius: 5px;
+    border: none;
+
+}
+
+.overlay .overlay-content .right2 .btn1 {
+    background-color: var(--color-secondary);
+}
+
+.overlay .overlay-content .right2 .btn2 {
+    background-color: transparent;
+    border: 1px solid var(--color-white);
+
+}
+
+.sec6 .right .btn2:hover {
+    background-color: var(--color-white) !important;
+
+}
+
+.overlay .overlay-content .right2 .btn1 a,
+.overlay .overlay-content .right2 .btn1 i,
+.overlay .overlay-content .right2 .btn2 i,
+.overlay .overlay-content .right2 .btn2 a {
+    text-decoration: none;
+    color: var(--bg-color) !important;
+}
+
+.sec6 .left h1 {
+    color: var(--color-white);
+}
+
+.sec6 .left .underline2 {
+    margin-top: var(--space-sm);
+}
+
+.sec7 {
+    position: relative;
+}
+
+.sec7-right .img8 {
+    height: 100%;
+    width: 90%;
+    border-radius: 20px;
+    position: relative;
+}
+
+.sec7-right .img7 {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    right: 20px;
+    top: 90px;
+    z-index: 4;
+}
+
+.sec7 .left {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    height: 50%;
+    padding: 50px 30px 70px 30px;
+    margin-top: var(--space-xl);
+    z-index: 5;
+}
+
+.sec7-right {
+    position: relative;
+    z-index: 2; 
+}
+
+.sec7 .right p {
+    margin-top: var(--space-sm);
+}
+
+.underline2 {
+    background-color: var(--color-accent);
+    width: 60px;
+    height: 2px;
+    z-index: 10;
+
+}
+
+.sec7 .left .underline2 {
+    margin-bottom: var(--space-sm);
+    margin-top: var(--space-sm);
+}
+
+.h6 {
+    color: var(--color-black) !important;
+    margin-top: var(--space-sm) !important;
+}
+
+.sec7 .left .h6-2 {
+
+    color: var(--color-primary) !important;
+}
+
+.slider-image {
+    width: 70px;
+    height: 70px;
+    margin-right: 15px;
+}
+
+.carousel-item .content {
+    width: 35%;
+
+}
+
+.underscore {
+    width: 20px;
+    height: 2px;
+    background-color: var(--color-secondary);
+
+}
+
+.images-container img {
+    margin-left: 100px;
+
+
+}
+
+.sec8 .header {
+margin-bottom: var(--space-xl) !important;
+    text-align: center;
+}
+
+.sec8 .underline2 {
+background-color: var(--color-accent);
+    width: 60px;
+    height: 2px;
+    margin: auto;
+    margin-bottom: var(--space-lg);
+}
+
+.sec8 .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+}
+.sec8 .col-sm-12.col-md-6.col-lg-4 {
+    display: flex; 
+}
+.images-container {
+    padding: 50px 0px;
+    background-image: url("../../images/bg-brands.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sec8 {
+    margin-bottom: var(--space-xxl) !important;
+padding-top: var(--section-xxxl);
+}
+
+.sec8 a {
+    text-decoration: none;
+
+}
+
+.sec8 span {
+    color: var(--color-primary) !important;
+}
+
+.sec8 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            flex-shrink: 0;
+            border-radius: 15px;
+}
+
+.sec8 .img3 {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            flex-shrink: 0;
+            object-position: center;
+            border-radius: 15px;
+}
+
+.sec8 .overlay3 {
+    position: relative;
+    background-color: rgba(252, 251, 251, 0.4);
+}
+
+.sec8 .parent {
+    position: relative;
+}
+.sec8 .card-footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.sec8 .div5 {
+position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: var(--font-size-sm);
+    z-index: 1; 
+}
+.video {
+    position: relative;
+}
+
+.video i {
+    font-size: var(--space-xl);
+    color: var(--color-white);
+    background-color: var(--color-secondary);
+    padding: 20px 20px 20px 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.video img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.sec1 .right {
+    position: relative;
+}
+
+.sec1 .right .span1 {
+    position: absolute;
+    right: 80px;
+    top: 230px;
+}

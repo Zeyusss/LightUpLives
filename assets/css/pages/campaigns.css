@@ -1,0 +1,338 @@
+   /* Filter Section */
+    .filters {
+      background-color: var(--color-white);
+      padding: var(--space-md);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      margin: -25px auto var(--space-lg);
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .search-bar {
+      flex: 1 1 300px;
+      position: relative;
+    }
+    
+    .search-bar input {
+      width: 100%;
+      padding: var(--space-xs) var(--space-md);
+      padding-left: 40px;
+      border: 1px solid #e0e0e0;
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: var(--font-size-base);
+    }
+    
+    .search-bar i {
+      position: absolute;
+      left: var(--space-xs);
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-text);
+    }
+    
+    .filter-options {
+      display: flex;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+    
+    .filter-select {
+      padding: var(--space-xs) var(--space-sm);
+      border: 1px solid #e0e0e0;
+      border-radius: var(--radius-md);
+      background-color: var(--color-white);
+      font-family: var(--font-body);
+      font-size: var(--font-size-sm);
+      cursor: pointer;
+    }
+    
+    /* Campaign Cards */
+    .campaigns-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--space-lg);
+      margin-bottom: var(--space-xxl);
+    }
+    
+    .campaign-card {
+      background-color: var(--color-white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .campaign-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .campaign-image {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    
+    .campaign-badge {
+      position: absolute;
+      top: var(--space-xs);
+      right: var(--space-xs);
+      background-color: var(--color-accent);
+      color: var(--color-white);
+      padding: 4px var(--space-xs);
+      border-radius: var(--radius-sm);
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+    }
+    
+    .campaign-content {
+      padding: var(--space-md);
+              display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+    }
+    
+    .campaign-category {
+      color: var(--color-secondary);
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      margin-bottom: var(--space-xs);
+      display: block;
+    }
+    
+    .campaign-title {
+      font-size: var(--font-size-lg);
+      color: var(--color-dark);
+      margin-bottom: var(--space-xs);
+      font-weight: 600;
+    }
+    
+    .campaign-desc {
+      margin-bottom: var(--space-md);
+      font-size: var(--font-size-base);
+      color: var(--color-text);
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .campaign-progress {
+      margin-bottom: var(--space-xs);
+    }
+    
+
+    
+    .campaign-stats {
+      display: flex;
+      justify-content: space-between;
+      color: var(--color-dark);
+      font-weight: 500;
+      font-size: var(--font-size-sm);
+    }
+    
+    .campaign-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-sm);
+      border-top: 1px solid #f0f0f0;
+    }
+    
+    .campaign-time {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--color-text);
+      font-size: var(--font-size-sm);
+    }
+    
+    .donate-btn {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+      border: none;
+      padding: 8px var(--space-md);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .donate-btn:hover {
+      background-color: var(--color-hover);
+    }
+    
+    /* Featured Campaign */
+    .featured-campaign {
+      margin-bottom: var(--space-xl);
+      background-color: var(--color-white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .featured-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    .featured-image {
+      height: 100%;
+      min-height: 400px;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .featured-details {
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .featured-badge {
+      display: inline-block;
+      background-color: var(--color-accent);
+      color: var(--color-white);
+      padding: 4px var(--space-xs);
+      border-radius: var(--radius-sm);
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      margin-bottom: var(--space-md);
+    }
+    
+    .featured-title {
+      font-size: var(--font-size-xl);
+      color: var(--color-dark);
+      margin-bottom: var(--space-sm);
+    }
+    
+    .featured-desc {
+      margin-bottom: var(--space-md);
+    }
+    
+    .featured-btn {
+      background-color: var(--color-secondary);
+      color: var(--color-white);
+      border: none;
+      padding: var(--space-xs) var(--space-lg);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: var(--font-size-base);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      align-self: flex-start;
+    }
+    
+    .featured-btn:hover {
+      background-color: var(--color-primary);
+    }
+    
+    /* Categories Section */
+    .categories {
+      margin-bottom: var(--space-xl);
+    }
+    
+    .section-title {
+      position: relative;
+      font-size: var(--font-size-xl);
+      color: var(--color-dark);
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-xs);
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--color-accent);
+    }
+    
+    .category-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+    }
+    
+    .category-pill {
+      background-color: var(--color-white);
+      border: 1px solid #e0e0e0;
+      border-radius: 30px;
+      padding: var(--space-xs) var(--space-md);
+      font-size: var(--font-size-sm);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .category-pill:hover {
+      background-color: var(--color-secondary);
+      color: var(--color-white);
+      border-color: var(--color-secondary);
+    }
+    
+    .category-pill.active {
+      background-color: var(--color-secondary);
+      color: var(--color-white);
+      border-color: var(--color-secondary);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-content {
+        width: 100%;
+      }
+      
+      .hero::before {
+        width: 100%;
+      }
+      
+      .featured-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .featured-image {
+        min-height: 200px;
+      }
+      
+      .campaigns-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+    }
+    
+    /* Load More button */
+    .load-more {
+      text-align: center;
+      margin: var(--space-lg) 0 var(--space-xxl);
+    }
+    
+    .load-more-btn {
+      background-color: transparent;
+      color: var(--color-secondary);
+      border: 2px solid var(--color-secondary);
+      padding: var(--space-xs) var(--space-lg);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .load-more-btn:hover {
+      background-color: var(--color-secondary);
+      color: var(--color-white);
+    }

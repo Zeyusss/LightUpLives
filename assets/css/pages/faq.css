@@ -1,0 +1,289 @@
+        /* FAQ Section 2 */
+        .FAQ-sec2 {
+            margin-top: var(--space-xxl) !important;
+            margin-bottom: var(--space-xxl) !important;
+        }
+
+        .FAQ-sec2-header {
+            margin-bottom: var(--space-xxl) !important;
+            text-align: center;
+        }
+
+        .FAQ-sec2-header h5 {
+            color: var(--color-secondary) !important;
+            font-size: var(--font-size-lg);
+        }
+
+        .FAQ-sec2-header h1 {
+            color: var(--color-primary);
+            font-size: var(--font-size-xxl);
+        }
+
+        .FAQ-sec2-header .p2 {
+            color: var(--color-text) !important;
+            font-size: var(--font-size-base);
+        }
+
+        .underline {
+            background-color: var(--color-accent);
+            width: 60px;
+            height: 2px;
+            margin: var(--space-sm) auto;
+            z-index: 10;
+        }
+
+        .left {
+            padding-right: var(--space-md);
+        }
+
+        .left h2 {
+            font-size: var(--font-size-xl);
+            color: var(--color-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .left .p2 {
+            color: var(--color-text) !important;
+            font-size: var(--font-size-base);
+            margin-bottom: var(--space-sm);
+        }
+
+        .left ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .left ul li {
+            margin-bottom: var(--space-sm) !important;
+            font-size: var(--font-size-base);
+        }
+
+        .left ul li i {
+            color: var(--color-secondary) !important;
+            margin-right: var(--space-xs);
+        }
+
+        .support-title {
+            padding-top: 50px;
+            font-size: var(--font-size-xl);
+            color: var(--color-primary);
+        }
+
+        .FAQ2-sec2 {
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 30px;
+            padding: 0;
+        }
+
+        .FAQ2-sec2 .left,
+        .FAQ2-sec2 .right {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .FAQ2-sec2 .left i,
+        .FAQ2-sec2 .right i {
+            font-size: 50px;
+            color: var(--color-secondary) !important;
+        }
+
+        .FAQ2-sec2 .image-content {
+            margin-top: var(--space-sm);
+        }
+
+        .FAQ2-sec2 .image-content h5 {
+            font-size: var(--font-size-lg);
+            color: var(--color-primary);
+        }
+
+        .FAQ2-sec2 .image-content p {
+            font-size: var(--font-size-base);
+            color: var(--color-text);
+        }
+
+        /* Accordion */
+        .FAQ-sec2 .accordion {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .FAQ-sec2 .accordion-button {
+            background-color: var(--color-accent) !important;
+            color: var(--color-white) !important;
+            font-size: var(--font-size-lg);
+            padding: var(--space-sm) var(--space-md);
+            transition: all 0.3s ease;
+        }
+
+        .FAQ-sec2 .accordion-button:hover,
+        .FAQ-sec2 .accordion-button:not(.collapsed) {
+            background-color: var(--color-hover) !important;
+            color: var(--color-dark) !important;
+        }
+
+        .FAQ-sec2 .accordion-item {
+            border: none;
+            margin-bottom: var(--space-md) !important;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+
+        .FAQ-sec2 .accordion-body {
+            padding: var(--space-md);
+            background-color: #f8f9fa;
+        }
+
+        .FAQ-sec2 .accordion-body .p2 {
+            color: var(--color-text) !important;
+            font-size: var(--font-size-base);
+        }
+
+        /* FAQ Section 4 */
+        .sec4-background {
+            height: 400px;
+            background-image: url('../../images/faq/mature-woman-donating-clothes.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(33, 52, 48, 0.7);
+            z-index: 1;
+        }
+
+        .overlay-content2 {
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        .overlay-content2 h6 {
+            color: var(--color-primary) !important;
+            font-size: var(--font-size-lg);
+        }
+
+        .overlay-content2 h2 {
+            color: var(--color-white);
+            font-size: var(--font-size-xxl);
+            margin: var(--space-sm) 0;
+        }
+
+        .overlay-content2 p {
+            color: var(--color-white);
+            font-size: var(--font-size-base);
+            margin-bottom: var(--space-md);
+        }
+
+        .btn1 {
+            background-color: var(--color-accent);
+            border: none;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-sm);
+            transition: all 0.5s ease;
+        }
+
+        .btn1 a {
+            color: var(--color-white) !important;
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: var(--space-xs);
+        }
+
+        .btn1 i {
+            color: var(--color-white) !important;
+        }
+
+        .btn1:hover {
+            background-color: var(--color-hover);
+        }
+
+        /* FAQ Section 3 */
+        .FAQ-sec3 {
+            margin-top: var(--space-xxl);
+            padding-top: var(--space-xxl);
+        }
+
+        .images-slider {
+            width: 100%;
+            height: 200px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 0;
+            scrollbar-width: none;
+            margin-bottom: 50px;
+        }
+        .images-slider img {
+            height: 100%;
+            width: 300px;
+            object-fit: cover;
+            display: inline-block;
+            margin-right: 10px;
+            border-radius: 10px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .FAQ-sec2 .accordion {
+                width: 100%;
+            }
+
+            .FAQ2-sec2 {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .FAQ2-sec2 .left,
+            .FAQ2-sec2 .right {
+                width: 100%;
+            }
+
+            .sec4-background {
+                height: 300px;
+            }
+
+            .overlay-content2 h2 {
+                font-size: var(--font-size-xl);
+            }
+
+            .images-slider {
+                height: 20vh;
+            }
+
+            .images-slider img {
+                width: 150px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .FAQ-sec2-header h1 {
+                font-size: var(--font-size-xl);
+            }
+
+            .FAQ-sec2 .accordion-button {
+                font-size: var(--font-size-base);
+            }
+
+            .overlay-content2 h2 {
+                font-size: var(--font-size-lg);
+            }
+
+            .btn1 {
+                padding: var(--space-xs) var(--space-md);
+            }
+        }

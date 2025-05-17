@@ -1,0 +1,25 @@
+.terms-section h2 {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.terms-section h4 {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+}
+
+.terms-section p, 
+.terms-section ul {
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+.terms-section ul {
+  padding-left: 1.5rem;
+}
+
+.terms-section li {
+  margin-bottom: 8px;
+}

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-Panel</title>
+        <link rel="icon" type="image/png" href="../../assets/images/logo/logo-icon.png" />
+    <link rel="stylesheet" href="../../assets/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/libs/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard/admin-panel.css">
+</head>
+<body>
+   <div class="container mx-0 px-0">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">Lumina <span>Platform</span></div>
+            
+            <div class="nav-section">
+                <h3 class="nav-section-title">Main</h3>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="./index.html" class="nav-link active">Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3 class="nav-section-title">Management</h3>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="./campaign-management.html" class="nav-link">Campaigns</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./users.html" class="nav-link">Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./pledges.html" class="nav-link">Pledges</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3 class="nav-section-title">System</h3>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Settings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Reports</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="user-info">
+                <div class="user-avatar">A</div>
+                <div>
+                    <div class="user-name">Admin User</div>
+                    <div class="user-role">Administrator</div>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Dashboard</h1>
+                <div class="actions">
+                    <div class="form-control">
+                        <input type="text" placeholder="Search...">
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-title">Total Campaigns</div>
+                    <div class="stat-value">128</div>
+                    <div class="stat-description">+12% from last month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Active Campaigns</div>
+                    <div class="stat-value">84</div>
+                    <div class="stat-description">70% of total campaigns</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Total Users</div>
+                    <div class="stat-value">3,254</div>
+                    <div class="stat-description">+8% from last month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Total Pledges</div>
+                    <div class="stat-value">$245,678</div>
+                    <div class="stat-description">+15% from last month</div>
+                </div>
+            </div>
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Campaigns Pending Approval</h2>
+                    <a href="./campaign-management.html" class="btn btn-outline btn-sm">View All</a>
+                </div>
+                <div class="section-content">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Campaign Name</th>
+                                    <th>Campaigner</th>
+                                    <th>Goal Amount</th>
+                                    <th>Submission Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Clean Ocean Initiative</td>
+                                    <td>John Williams</td>
+                                    <td>$50,000</td>
+                                    <td>May 15, 2025</td>
+                                    <td><span class="badge badge-pending">Pending</span></td>
+                                    <td>
+                                        <div class="actions">
+                                            <button class="btn btn-outline btn-sm">View</button>
+                                            <button class="btn btn-primary btn-sm">Approve</button>
+                                            <button class="btn btn-outline btn-sm">Reject</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Community Garden Project</td>
+                                    <td>Sarah Johnson</td>
+                                    <td>$15,000</td>
+                                    <td>May 14, 2025</td>
+                                    <td><span class="badge badge-pending">Pending</span></td>
+                                    <td>
+                                        <div class="actions">
+                                            <button class="btn btn-outline btn-sm">View</button>
+                                            <button class="btn btn-primary btn-sm">Approve</button>
+                                            <button class="btn btn-outline btn-sm">Reject</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Renewable Energy Research</td>
+                                    <td>Michael Chen</td>
+                                    <td>$75,000</td>
+                                    <td>May 12, 2025</td>
+                                    <td><span class="badge badge-pending">Pending</span></td>
+                                    <td>
+                                        <div class="actions">
+                                            <button class="btn btn-outline btn-sm">View</button>
+                                            <button class="btn btn-primary btn-sm">Approve</button>
+                                            <button class="btn btn-outline btn-sm">Reject</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Wildlife Conservation</td>
+                                    <td>Emily Davis</td>
+                                    <td>$35,000</td>
+                                    <td>May 10, 2025</td>
+                                    <td><span class="badge badge-pending">Pending</span></td>
+                                    <td>
+                                        <div class="actions">
+                                            <button class="btn btn-outline btn-sm">View</button>
+                                            <button class="btn btn-primary btn-sm">Approve</button>
+                                            <button class="btn btn-outline btn-sm">Reject</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent User Activity -->
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Recent User Activity</h2>
+                </div>
+                <div class="section-content">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Action</th>
+                                    <th>Details</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Lisa Thompson</td>
+                                    <td>Made a pledge</td>
+                                    <td>$500 to Clean Ocean Initiative</td>
+                                    <td>Today, 10:45 AM</td>
+                                </tr>
+                                <tr>
+                                    <td>Robert Green</td>
+                                    <td>Created account</td>
+                                    <td>New Campaigner</td>
+                                    <td>Today, 09:32 AM</td>
+                                </tr>
+                                <tr>
+                                    <td>John Williams</td>
+                                    <td>Created campaign</td>
+                                    <td>Clean Ocean Initiative</td>
+                                    <td>Yesterday, 4:15 PM</td>
+                                </tr>
+                                <tr>
+                                    <td>Sarah Johnson</td>
+                                    <td>Updated campaign</td>
+                                    <td>Community Garden Project</td>
+                                    <td>Yesterday, 2:30 PM</td>
+                                </tr>
+                                <tr>
+                                    <td>Michael Smith</td>
+                                    <td>Made a pledge</td>
+                                    <td>$250 to Wildlife Conservation</td>
+                                    <td>Yesterday, 11:20 AM</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+
+<script src="../../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/dashboard/dashboard.js"></script>
+</body>
+</html>

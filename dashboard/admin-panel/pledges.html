@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Pledge Management</title>
+    <link rel="icon" type="image/png" href="../../assets/images/logo/logo-icon.png" />
+    <link rel="stylesheet" href="../../assets/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/libs/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard/admin-pledges.css">
+</head>
+<body>
+   <div class="full-width-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">Lumina <span>Platform</span></div>
+            
+            <div class="nav-section">
+                <h3 class="nav-section-title">Main</h3>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="./index.html" class="nav-link">Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3 class="nav-section-title">Management</h3>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="./campaign-management.html" class="nav-link">Campaigns</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./users.html" class="nav-link">Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./pledges.html" class="nav-link active">Pledges</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3 class="nav-section-title">System</h3>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Settings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Reports</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="user-info">
+                <div class="user-avatar">A</div>
+                <div>
+                    <div class="user-name">Admin User</div>
+                    <div class="user-role">Administrator</div>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Pledge Management</h1>
+                <div class="actions">
+                    <div class="form-control">
+                        <i class="fas fa-search me-2"></i>
+                        <input type="text" placeholder="Search pledges..." aria-label="Search pledges">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pledges Section -->
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">All Pledges</h2>
+                </div>
+                
+                <div class="section-content">
+                    <!-- Filters -->
+                    <div class="filters">
+                        <div class="filter-group">
+                            <span class="filter-label">Status:</span>
+                            <select class="filter-select" id="status-filter" aria-label="Filter by status">
+                                <option value="all">All</option>
+                                <option value="pending">Pending</option>
+                                <option value="confirmed">Confirmed</option>
+                                <option value="refunded">Refunded</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <span class="filter-label">Campaign:</span>
+                            <select class="filter-select" id="campaign-filter" aria-label="Filter by campaign">
+                                <option value="all">All Campaigns</option>
+                                <option value="clean-ocean">Clean Ocean Initiative</option>
+                                <option value="community-garden">Community Garden Project</option>
+                                <option value="renewable-energy">Renewable Energy Research</option>
+                                <option value="save-forest">Save the Forest</option>
+                                <option value="mental-health">Mental Health Awareness</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <span class="filter-label">Date Range:</span>
+                            <input type="date" class="filter-input" id="date-from" aria-label="Start date">
+                            <span>to</span>
+                            <input type="date" class="filter-input" id="date-to" aria-label="End date">
+                        </div>
+                    </div>
+                    
+                    <!-- Pledges Table -->
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Pledge ID</th>
+                                    <th>Campaign</th>
+                                    <th>Pledger</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#1001</td>
+                                    <td>Save the Forest</td>
+                                    <td>Alice Smith</td>
+                                    <td>$500</td>
+                                    <td><span class="badge badge-confirmed">Confirmed</span></td>
+                                    <td>May 10, 2025</td>
+                                    <td>
+                                        <div class="actions">
+                                            <button class="btn btn-outline btn-sm" onclick="viewPledge(1001)" aria-label="View pledge">View</button>
+                                            <button class="btn btn-outline btn-sm" onclick="refundPledge(1001)" aria-label="Refund pledge">Refund</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#1002</td>
+                                    <td>Mental Health Awareness</td>
+                                    <td>Bob Johnson</td>
+                                    <td>$200</td>
+                                    <td><span class="badge badge-pending">Pending</span></td>
+                                    <td>May 12, 2025</td>
+                                    <td>
+                                        <div class="actions">
+                                            <button class="btn btn-outline btn-sm" onclick="viewPledge(1002)" aria-label="View pledge">View</button>
+                                            <button class="btn btn-primary btn-sm" onclick="confirmPledge(1002)" aria-label="Confirm pledge">Confirm</button>
+                                            <button class="btn btn-outline btn-sm" onclick="refundPledge(1002)" aria-label="Refund pledge">Refund</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#1003</td>
+                                    <td>Save the Forest</td>
+                                    <td>Carol White</td>
+                                    <td>$1,000</td>
+                                    <td><span class="badge badge-confirmed">Confirmed</span></td>
+                                    <td>May 8, 2025</td>
+                                    <td>
+                                        <div class="actions">
+                                            <button class="btn btn-outline btn-sm" onclick="viewPledge(1003)" aria-label="View pledge">View</button>
+                                            <button class="btn btn-outline btn-sm" onclick="refundPledge(1003)" aria-label="Refund pledge">Refund</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#1004</td>
+                                    <td>Mental Health Awareness</td>
+                                    <td>David Brown</td>
+                                    <td>$150</td>
+                                    <td><span class="badge badge-pending">Pending</span></td>
+                                    <td>May 15, 2025</td>
+                                    <td>
+                                        <div class="actions">
+                                            <button class="btn btn-outline btn-sm" onclick="viewPledge(1004)" aria-label="View pledge">View</button>
+                                            <button class="btn btn-primary btn-sm" onclick="confirmPledge(1004)" aria-label="Confirm pledge">Confirm</button>
+                                            <button class="btn btn-outline btn-sm" onclick="refundPledge(1004)" aria-label="Refund pledge">Refund</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#1005</td>
+                                    <td>Save the Forest</td>
+                                    <td>Emma Davis</td>
+                                    <td>$300</td>
+                                    <td><span class="badge badge-refunded">Refunded</span></td>
+                                    <td>May 5, 2025</td>
+                                    <td>
+                                        <div class="actions">
+                                            <button class="btn btn-outline btn-sm" onclick="viewPledge(1005)" aria-label="View pledge">View</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="pagination">
+                    <div class="pagination-item" aria-label="Previous page">«</div>
+                    <div class="pagination-item active" aria-label="Page 1">1</div>
+                    <div class="pagination-item" aria-label="Page 2">2</div>
+                    <div class="pagination-item" aria-label="Page 3">3</div>
+                    <div class="pagination-item" aria-label="Next page">»</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/dashboard/dashboard.js"></script>
+</body>
+</html>

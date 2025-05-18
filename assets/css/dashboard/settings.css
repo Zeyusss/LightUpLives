@@ -8,7 +8,6 @@
     --radius-md: 8px;
  }
 
-
 .full-width-container {
     display: flex;
     width: 100% !important;
@@ -142,7 +141,6 @@
     max-width: none !important;
 }
 
-
 .page-header {
     display: flex;
     justify-content: space-between;
@@ -189,13 +187,9 @@
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
     padding: var(--space-lg);
-    margin-bottom: var(--space-lg);
 }
 
 .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: var(--space-md);
 }
 
@@ -273,104 +267,6 @@ td {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-
-.modal-content {
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-    border: none;
-}
-
-.modal-header {
-    background: var(--color-bg);
-    border-bottom: none;
-    padding: var(--space-md);
-}
-
-.modal-title {
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-    color: var(--color-dark);
-}
-
-.modal-body {
-    padding: var(--space-md);
-}
-
-.modal-footer {
-    border-top: none;
-    padding: var(--space-sm);
-    background: var(--color-bg);
-}
-
-.form-label {
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    color: var(--color-dark);
-    margin-bottom: var(--space-xs);
-}
-
-.form-control, .form-select {
-    border-radius: var(--radius-sm);
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    padding: var(--space-xs) var(--space-sm);
-}
-
-.form-control:focus, .form-select:focus {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 2px rgba(33, 52, 48, 0.2);
-    outline: none;
-}
-
-.alert-danger {
-    font-size: var(--font-size-sm);
-    padding: var(--space-xs) var(--space-sm);
-}
-
-
-.btn {
-    padding: var(--space-xs) var(--space-sm);
-    border-radius: var(--radius-sm);
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    transition: background-color 0.2s;
-}
-
-.btn-primary {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    border: none;
-}
-
-.btn-primary:hover {
-    background-color: #1b2a27;
-}
-
-.btn-outline {
-    background: transparent;
-    border: 1px solid var(--color-primary);
-    color: var(--color-primary);
-}
-
-.btn-outline:hover {
-    background: rgba(0, 0, 0, 0.05);
-}
-
-.btn-danger {
-    background-color: #dc3545;
-    color: var(--color-white);
-    border: none;
-}
-
-.btn-danger:hover {
-    background-color: #c82333;
-}
-
-.btn-sm {
-    padding: 4px 8px;
-    font-size: var(--font-size-sm);
-}
-
-
 .badge {
     padding: var(--space-xs) var(--space-sm);
     border-radius: var(--radius-sm);
@@ -378,24 +274,91 @@ td {
     font-weight: 500;
 }
 
-.badge-primary {
-    background-color: rgba(33, 52, 48, 0.1);
-    color: var(--color-primary);
-}
 
-.badge-confirmed, .badge-campaign {
+.badge-campaign {
     background-color: rgba(0, 147, 104, 0.1);
     color: var(--color-secondary);
 }
 
-.badge-pending, .badge-user {
+.badge-user {
     background-color: rgba(236, 163, 12, 0.1);
     color: var(--color-accent);
 }
 
-.badge-refunded, .badge-pledge {
+.badge-pledge {
     background-color: rgba(108, 117, 125, 0.1);
     color: #6c757d;
+}
+
+
+.badge-confirmed {
+    background-color: rgba(0, 147, 104, 0.1);
+    color: var(--color-secondary);
+}
+
+.badge-pending {
+    background-color: rgba(236, 163, 12, 0.1);
+    color: var(--color-accent);
+}
+
+.badge-refunded {
+    background-color: rgba(108, 117, 125, 0.1);
+    color: #6c757d;
+}
+btn {
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--color-secondary), #68d391);
+    color: var(--color-white);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #2f855a, var(--color-secondary));
+    transform: scale(1.05);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-danger {
+    background: linear-gradient(45deg, var(--color-danger), #f56565);
+    color: var(--color-white);
+    border: none;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(45deg, #c53030, var(--color-danger));
+    transform: scale(1.05);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-outline {
+background-color: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn-outline:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: scale(1.05);
+}
+
+.btn-sm {
+    padding: 4px 8px;
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+}
+
+.actions .btn {
+    margin-right: var(--space-xs);
 }
 
 
@@ -488,15 +451,5 @@ td {
 
     .page-title {
         font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .page-title {
-        font-size: var(--font-size-lg);
-    }
-
-    .section-title {
-        font-size: var(--font-size-base);
     }
 }

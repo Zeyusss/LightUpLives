@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Control - Lumina Platform</title>
+    <link rel="icon" type="image/png" href="../../assets/images/logo/logo-icon.png" />
+    <link rel="stylesheet" href="../../assets/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/libs/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard/settings.css">
+</head>
+<body>
+    <div class="full-width-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
+            <div class="logo">Lumina <span>Platform</span></div>
+            <div class="nav-content">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Main</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="./index.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Management</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="./campaign-management.html" class="nav-link"><i class="fas fa-bullhorn"></i> Campaigns</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./users.html" class="nav-link"><i class="fas fa-users"></i> Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./pledges.html" class="nav-link"><i class="fas fa-hand-holding-usd"></i> Pledges</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">System</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="./settings.html" class="nav-link active"><i class="fas fa-cog"></i> Settings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./reports.html" class="nav-link"><i class="fas fa-file-alt"></i> Reports</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="user-info">
+                <div class="user-avatar">A</div>
+                <div>
+                    <div class="user-name">Admin User</div>
+                    <div class="user-role">Administrator</div>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Settings</h1>
+                <div class="actions">
+                    <div class="form-control">
+                        <i class="fas fa-search me-2"></i>
+                        <input type="text" placeholder="Search settings..." aria-label="Search settings">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Platform Settings -->
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Platform Settings</h2>
+                </div>
+                <div class="section-content">
+                    <form id="platform-settings-form">
+                        <div class="mb-3">
+                            <label for="platform-name" class="form-label">Platform Name</label>
+                            <input type="text" class="form-control" id="platform-name" placeholder="Enter platform name" value="Lumina Platform" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="platform-description" class="form-label">Platform Description</label>
+                            <textarea class="form-control" id="platform-description" rows="4" placeholder="Enter platform description" required>A crowdfunding platform to support innovative projects.</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="platform-logo" class="form-label">Platform Logo</label>
+                            <input type="file" class="form-control" id="platform-logo" accept="image/*">
+                        </div>
+                        <div id="platform-settings-alert" class="alert alert-danger d-none" role="alert">
+                            Please fill in all required fields.
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="reset" class="btn btn-outline">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- User Management Settings -->
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">User Management Settings</h2>
+                </div>
+                <div class="section-content">
+                    <form id="user-settings-form">
+                        <div class="mb-3">
+                            <label for="default-role" class="form-label">Default User Role</label>
+                            <select class="form-select" id="default-role" required>
+                                <option value="user" selected>User</option>
+                                <option value="campaigner">Campaigner</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="manual-approval" checked>
+                                <label class="form-check-label" for="manual-approval">
+                                    Require Manual Account Approval
+                                </label>
+                            </div>
+                        </div>
+                        <div id="user-settings-alert" class="alert alert-danger d-none" role="alert">
+                            Please select a default role.
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="reset" class="btn btn-outline">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Notifications Settings -->
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Notifications Settings</h2>
+                </div>
+                <div class="section-content">
+                    <form id="notifications-settings-form">
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="email-notifications" checked>
+                                <label class="form-check-label" for="email-notifications">
+                                    Enable Email Notifications
+                                </label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="system-notifications" checked>
+                                <label class="form-check-label" for="system-notifications">
+                                    Enable System Notifications
+                                </label>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="reset" class="btn btn-outline">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/dashboard/settings.js"></script>
+</body>
+</html>

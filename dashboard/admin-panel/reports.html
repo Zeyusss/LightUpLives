@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - Pledge Management</title>
+    <title>Users Control - Lumina Platform</title>
     <link rel="icon" type="image/png" href="../../assets/images/logo/logo-icon.png" />
     <link rel="stylesheet" href="../../assets/libs/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/libs/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../../assets/css/style.css">
-    <link rel="stylesheet" href="../../assets/css/dashboard/admin-pledges.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard/admin-reports.css">
 </head>
 <body>
     <div class="full-width-container">
@@ -36,7 +36,7 @@
                             <a href="./users.html" class="nav-link"><i class="fas fa-users"></i> Users</a>
                         </li>
                         <li class="nav-item">
-                            <a href="./pledges.html" class="nav-link active"><i class="fas fa-hand-holding-usd"></i> Pledges</a>
+                            <a href="./pledges.html" class="nav-link"><i class="fas fa-hand-holding-usd"></i> Pledges</a>
                         </li>
                     </ul>
                 </div>
@@ -48,7 +48,7 @@
                             <a href="./settings.html" class="nav-link"><i class="fas fa-cog"></i> Settings</a>
                         </li>
                         <li class="nav-item">
-                            <a href="./reports.html" class="nav-link"><i class="fas fa-file-alt"></i> Reports</a>
+                            <a href="./reports.html" class="nav-link active"><i class="fas fa-file-alt"></i> Reports</a>
                         </li>
                     </ul>
                 </div>
@@ -63,47 +63,35 @@
             </div>
         </aside>
         
-        
+       
         <main class="main-content">
             <div class="page-header">
-                <h1 class="page-title">Pledge Management</h1>
+                <h1 class="page-title">Report Management</h1>
                 <div class="actions">
                     <div class="form-control">
                         <i class="fas fa-search me-2"></i>
-                        <input type="text" placeholder="Search Pledges..." aria-label="Search Pledges">
+                        <input type="text" placeholder="Search Reports..." aria-label="Search Reports">
                     </div>
-                    <button class="btn btn-primary btn-sm">Export Data</button>
+                    <button class="btn btn-primary btn-sm">Generate Report</button>
                 </div>
             </div>
             
-            
+           
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">All Pledges</h2>
+                    <h2 class="section-title">All Reports</h2>
                 </div>
                 
                 <div class="section-content">
                     
                     <div class="filters">
                         <div class="filter-group">
-                            <span class="filter-label">Status:</span>
-                            <select class="filter-select" id="pledge-status-filter" aria-label="Filter by status">
+                            <span class="filter-label">Report Type:</span>
+                            <select class="filter-select" id="report-type-filter" aria-label="Filter by report type">
                                 <option value="all">All</option>
-                                <option value="pending">Pending</option>
-                                <option value="confirmed">Confirmed</option>
-                                <option value="refunded">Refunded</option>
-                            </select>
-                        </div>
-                        
-                        <div class="filter-group">
-                            <span class="filter-label">Campaign:</span>
-                            <select class="filter-select" id="campaign-filter" aria-label="Filter by campaign">
-                                <option value="all">All Campaigns</option>
-                                <option value="clean-ocean">Clean Ocean Initiative</option>
-                                <option value="community-garden">Community Garden Project</option>
-                                <option value="renewable-energy">Renewable Energy Research</option>
-                                <option value="save-forest">Save the Forest</option>
-                                <option value="mental-health">Mental Health Awareness</option>
+                                <option value="campaign-performance">Campaign Performance</option>
+                                <option value="user-activity">User Activity</option>
+                                <option value="pledge-summary">Pledge Summary</option>
                             </select>
                         </div>
                         
@@ -120,84 +108,77 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Pledge ID</th>
-                                    <th>Campaign</th>
-                                    <th>Pledger</th>
-                                    <th>Amount</th>
-                                    <th>Status</th>
+                                    <th>Report ID</th>
+                                    <th>Title</th>
+                                    <th>Type</th>
+                                    <th>Generated By</th>
                                     <th>Date</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>#1001</td>
-                                    <td>Save the Forest</td>
+                                    <td>#R001</td>
+                                    <td>Q2 Campaign Performance</td>
+                                    <td><span class="badge badge-campaign">Campaign Performance</span></td>
                                     <td>Alice Smith</td>
-                                    <td>$500</td>
-                                    <td><span class="badge badge-confirmed">Confirmed</span></td>
                                     <td>May 10, 2025</td>
                                     <td>
                                         <div class="actions">
-                                            <button class="btn btn-outline btn-sm"  aria-label="View pledge">View</button>
-                                            <button class="btn btn-outline btn-sm"  aria-label="Refund pledge">Refund</button>
+                                            <button class="btn btn-outline btn-sm"  aria-label="View report">View</button>
+                                            <button class="btn btn-outline btn-sm"  aria-label="Download report">Download</button>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>#1002</td>
-                                    <td>Mental Health Awareness</td>
+                                    <td>#R002</td>
+                                    <td>User Activity May 2025</td>
+                                    <td><span class="badge badge-user">User Activity</span></td>
                                     <td>Bob Johnson</td>
-                                    <td>$200</td>
-                                    <td><span class="badge badge-pending">Pending</span></td>
                                     <td>May 12, 2025</td>
                                     <td>
                                         <div class="actions">
-                                            <button class="btn btn-outline btn-sm"  aria-label="View pledge">View</button>
-                                            <button class="btn btn-primary btn-sm"  aria-label="Confirm pledge">Confirm</button>
-                                            <button class="btn btn-outline btn-sm"  aria-label="Refund pledge">Refund</button>
+                                            <button class="btn btn-outline btn-sm"  aria-label="View report">View</button>
+                                            <button class="btn btn-outline btn-sm"  aria-label="Download report">Download</button>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>#1003</td>
-                                    <td>Save the Forest</td>
+                                    <td>#R003</td>
+                                    <td>Pledge Summary Q1</td>
+                                    <td><span class="badge badge-pledge">Pledge Summary</span></td>
                                     <td>Carol White</td>
-                                    <td>$1,000</td>
-                                    <td><span class="badge badge-confirmed">Confirmed</span></td>
                                     <td>May 8, 2025</td>
                                     <td>
                                         <div class="actions">
-                                            <button class="btn btn-outline btn-sm"  aria-label="View pledge">View</button>
-                                            <button class="btn btn-outline btn-sm"  aria-label="Refund pledge">Refund</button>
+                                            <button class="btn btn-outline btn-sm"  aria-label="View report">View</button>
+                                            <button class="btn btn-outline btn-sm"  aria-label="Download report">Download</button>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>#1004</td>
-                                    <td>Mental Health Awareness</td>
+                                    <td>#R004</td>
+                                    <td>Campaign Performance April</td>
+                                    <td><span class="badge badge-campaign">Campaign Performance</span></td>
                                     <td>David Brown</td>
-                                    <td>$150</td>
-                                    <td><span class="badge badge-pending">Pending</span></td>
                                     <td>May 15, 2025</td>
                                     <td>
                                         <div class="actions">
-                                            <button class="btn btn-outline btn-sm"  aria-label="View pledge">View</button>
-                                            <button class="btn btn-primary btn-sm"  aria-label="Confirm pledge">Confirm</button>
-                                            <button class="btn btn-outline btn-sm"  aria-label="Refund pledge">Refund</button>
+                                            <button class="btn btn-outline btn-sm"  aria-label="View report">View</button>
+                                            <button class="btn btn-outline btn-sm"  aria-label="Download report">Download</button>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>#1005</td>
-                                    <td>Save the Forest</td>
+                                    <td>#R005</td>
+                                    <td>User Activity April 2025</td>
+                                    <td><span class="badge badge-user">User Activity</span></td>
                                     <td>Emma Davis</td>
-                                    <td>$300</td>
-                                    <td><span class="badge badge-refunded">Refunded</span></td>
                                     <td>May 5, 2025</td>
                                     <td>
                                         <div class="actions">
-                                            <button class="btn btn-outline btn-sm"  aria-label="View pledge">View</button>
+                                            <button class="btn btn-outline btn-sm"  aria-label="View report">View</button>
+                                            <button class="btn btn-outline btn-sm"  aria-label="Download report">Download</button>
                                         </div>
                                     </td>
                                 </tr>
@@ -206,7 +187,7 @@
                     </div>
                 </div>
                 
-                <!-- Pagination -->
+                
                 <div class="pagination">
                     <div class="pagination-item" aria-label="Previous page">«</div>
                     <div class="pagination-item active" aria-label="Page 1">1</div>
@@ -219,7 +200,6 @@
     </div>
 
     <script src="../../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../../assets/js/main.js"></script>
-    <script src="../../assets/js/dashboard/dashboard.js"></script>
+    <script src="../../assets/js/dashboard/admin-reports.js"></script>
 </body>
 </html>

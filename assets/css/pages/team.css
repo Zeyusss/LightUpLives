@@ -1,5 +1,5 @@
 
-/* Team Members */
+
 
 .team {
     padding-top: var(--section-xxxl);
@@ -32,7 +32,7 @@
     cursor: pointer;
 }
 
-/* good deeds */
+
 
 .good-deeds {
     padding-top: var(--section-xxxl);
@@ -108,7 +108,7 @@
 }
 
 
-/* Media Queries */
+
 @media (max-width: 767px) { 
     .good-deeds .inner-left {
         padding: 30px; 

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin-Panel</title>
-        <link rel="icon" type="image/png" href="../../assets/images/logo/logo-icon.png" />
+    <title>Admin Panel - Lumina Platform</title>
+    <link rel="icon" type="image/png" href="../../assets/images/logo/logo-icon.png" />
     <link rel="stylesheet" href="../../assets/libs/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/libs/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../../assets/css/style.css">
@@ -12,7 +12,6 @@
 </head>
 <body>
     <div class="full-width-container">
-        
         <aside class="sidebar">
             <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
             <div class="logo">Lumina <span>Platform</span></div>
@@ -25,7 +24,6 @@
                         </li>
                     </ul>
                 </div>
-                
                 <div class="nav-section">
                     <h3 class="nav-section-title">Management</h3>
                     <ul class="nav-list">
@@ -40,12 +38,11 @@
                         </li>
                     </ul>
                 </div>
-                
                 <div class="nav-section">
                     <h3 class="nav-section-title">System</h3>
                     <ul class="nav-list">
                         <li class="nav-item">
-                            <a href="./settings.html" class="nav-link"><i class="fas fa-cog"></i> Settings</a>
+                            <a href="./events.html" class="nav-link"><i class="fas fa-cog"></i> Events</a>
                         </li>
                         <li class="nav-item">
                             <a href="./reports.html" class="nav-link"><i class="fas fa-file-alt"></i> Reports</a>
@@ -53,7 +50,6 @@
                     </ul>
                 </div>
             </div>
-            
             <div class="user-info">
                 <div class="user-avatar">A</div>
                 <div>
@@ -62,8 +58,6 @@
                 </div>
             </div>
         </aside>
-        
-        
         <main class="main-content">
             <div class="page-header">
                 <h1 class="page-title">Dashboard</h1>
@@ -74,8 +68,6 @@
                     </div>
                 </div>
             </div>
-            
-            
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-title">Total Campaigns</div>
@@ -98,12 +90,15 @@
                     <div class="stat-description">+15% from last month</div>
                 </div>
             </div>
-            
-            
             <div class="section">
                 <div class="section-header">
                     <h2 class="section-title">Campaigns Pending Approval</h2>
-                    <a href="./campaign-management.html" class="btn btn-outline btn-sm">View All</a>
+                    <div class="actions">
+                        <button class="btn btn-outline btn-sm" id="filterPending">Pending</button>
+                        <button class="btn btn-outline btn-sm" id="filterApproved">Approved</button>
+                        <button class="btn btn-outline btn-sm" id="filterRejected">Rejected</button>
+                        <a href="./campaign-management.html" class="btn btn-outline btn-sm">View All</a>
+                    </div>
                 </div>
                 <div class="section-content">
                     <div class="table-container">
@@ -118,126 +113,59 @@
                                     <th>Actions</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Clean Ocean Initiative</td>
-                                    <td>John Williams</td>
-                                    <td>$50,000</td>
-                                    <td>May 15, 2025</td>
-                                    <td><span class="badge badge-pending">Pending</span></td>
-                                    <td>
-                                        <div class="actions">
-                                            <button class="btn btn-outline btn-sm">View</button>
-                                            <button class="btn btn-primary btn-sm">Approve</button>
-                                            <button class="btn btn-outline btn-sm">Reject</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Community Garden Project</td>
-                                    <td>Sarah Johnson</td>
-                                    <td>$15,000</td>
-                                    <td>May 14, 2025</td>
-                                    <td><span class="badge badge-pending">Pending</span></td>
-                                    <td>
-                                        <div class="actions">
-                                            <button class="btn btn-outline btn-sm">View</button>
-                                            <button class="btn btn-primary btn-sm">Approve</button>
-                                            <button class="btn btn-outline btn-sm">Reject</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Renewable Energy Research</td>
-                                    <td>Michael Chen</td>
-                                    <td>$75,000</td>
-                                    <td>May 12, 2025</td>
-                                    <td><span class="badge badge-pending">Pending</span></td>
-                                    <td>
-                                        <div class="actions">
-                                            <button class="btn btn-outline btn-sm">View</button>
-                                            <button class="btn btn-primary btn-sm">Approve</button>
-                                            <button class="btn btn-outline btn-sm">Reject</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Wildlife Conservation</td>
-                                    <td>Emily Davis</td>
-                                    <td>$35,000</td>
-                                    <td>May 10, 2025</td>
-                                    <td><span class="badge badge-pending">Pending</span></td>
-                                    <td>
-                                        <div class="actions">
-                                            <button class="btn btn-outline btn-sm">View</button>
-                                            <button class="btn btn-primary btn-sm">Approve</button>
-                                            <button class="btn btn-outline btn-sm">Reject</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
+                            <tbody id="pendingCampaignsTable"></tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            
-            
-            <div class="section">
+            <div class="section" id="campaigner-requests-section">
                 <div class="section-header">
-                    <h2 class="section-title">Recent User Activity</h2>
+                    <h2 class="section-title">Campaigner Requests</h2>
                 </div>
                 <div class="section-content">
                     <div class="table-container">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>User</th>
-                                    <th>Action</th>
-                                    <th>Details</th>
-                                    <th>Time</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Project Idea</th>
+                                    <th>Experience</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Lisa Thompson</td>
-                                    <td>Made a pledge</td>
-                                    <td>$500 to Clean Ocean Initiative</td>
-                                    <td>Today, 10:45 AM</td>
-                                </tr>
-                                <tr>
-                                    <td>Robert Green</td>
-                                    <td>Created account</td>
-                                    <td>New Campaigner</td>
-                                    <td>Today, 09:32 AM</td>
-                                </tr>
-                                <tr>
-                                    <td>John Williams</td>
-                                    <td>Created campaign</td>
-                                    <td>Clean Ocean Initiative</td>
-                                    <td>Yesterday, 4:15 PM</td>
-                                </tr>
-                                <tr>
-                                    <td>Sarah Johnson</td>
-                                    <td>Updated campaign</td>
-                                    <td>Community Garden Project</td>
-                                    <td>Yesterday, 2:30 PM</td>
-                                </tr>
-                                <tr>
-                                    <td>Michael Smith</td>
-                                    <td>Made a pledge</td>
-                                    <td>$250 to Wildlife Conservation</td>
-                                    <td>Yesterday, 11:20 AM</td>
-                                </tr>
-                            </tbody>
+                            <tbody id="campaigner-requests-body"></tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Rejection Reason Modal -->
+            <div class="modal fade" id="rejectionReasonModal" tabindex="-1" aria-labelledby="rejectionReasonModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="rejectionReasonModalLabel">Reject Campaign</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="rejectionReason" class="form-label">Rejection Reason (optional):</label>
+                                <textarea class="form-control" id="rejectionReason" rows="4" placeholder="Enter reason for rejection"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-danger" id="confirmReject">Reject</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </main>
     </div>
-
-<script src="../../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../../assets/js/main.js"></script>
-<script src="../../assets/js/dashboard/dashboard.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/dashboard/dashboard.js"></script>
 </body>
 </html>

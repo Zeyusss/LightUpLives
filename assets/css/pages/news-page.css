@@ -176,9 +176,8 @@ background-color: var(--color-hover);
             margin-right: 10px;
         }
 
-        * Sidebar Styles */
 
-/* Common widget styling */
+
 .sidebar-widget {
     border-radius: 8px;
     padding: 20px;
@@ -195,7 +194,7 @@ background-color: var(--color-hover);
     position: relative;
 }
 
-/* Search widget */
+
 .search-form .input-group {
     border-radius: 30px;
     overflow: hidden;
@@ -210,7 +209,7 @@ background-color: var(--color-hover);
     height: 45px;
 }
 
-/* Recent posts widget */
+
 .recent-post-image {
     flex: 0 0 80px;
 }
@@ -237,7 +236,7 @@ background-color: var(--color-hover);
     color: var(--color-secondary);
 }
 
-/* Categories widget */
+
 .categories-list li {
     margin-bottom: 10px;
     border-bottom: 1px dashed #ddd;
@@ -270,7 +269,7 @@ background-color: var(--color-hover);
     color: #555;
 }
 
-/* Newsletter widget */
+
 .newsletter-form .form-control {
     height: 45px;
     border-radius: 4px;
@@ -281,7 +280,7 @@ background-color: var(--color-hover);
     border-radius: 4px;
 }
 
-/* Tags widget */
+
 .tags {
     display: flex;
     flex-wrap: wrap;
@@ -304,7 +303,7 @@ background-color: var(--color-hover);
     color: #fff;
 }
 
-/* Social widget */
+
 .social-icons {
     display: flex;
     gap: 12px;
@@ -330,7 +329,7 @@ background-color: var(--color-hover);
     color: #fff;
 }
 
-/* Events widget */
+
 .event-item {
     display: flex;
     gap: 15px;

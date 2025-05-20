@@ -19,7 +19,7 @@ body {
     background-position: center;
 }
 
-/* Layout */
+
 .auth-container, .container-full {
     height: 100vh;
     display: flex;
@@ -91,7 +91,7 @@ body {
     background: white;
 }
 
-/* Welcome Text */
+
 
 .welcome-text{
 width: 80%;
@@ -118,7 +118,7 @@ margin: auto;
     z-index: 0;
 }
 
-/* Form Styles */
+
 .auth-form-title {
     font-size: 28px;
     font-weight: 700;
@@ -161,7 +161,6 @@ margin: auto;
     border-color: #008f6c;
 }
 
-/* Auth Links */
 .auth-links {
     display: flex;
     justify-content: space-between;
@@ -179,7 +178,7 @@ margin: auto;
     text-decoration: underline;
 }
 
-/* Social Login */
+
 .social-login {
     margin-top: 20px;
     text-align: center;
@@ -235,7 +234,7 @@ margin: auto;
     color: var(--light-text);
 }
 
-/* Footer Text */
+
 .footer-text {
     text-align: center;
     margin-top: 30px;
@@ -252,7 +251,7 @@ margin: auto;
     text-decoration: underline;
 }
 
-/* Register Specific */
+
 .form-row {
     display: flex;
     gap: 15px;
@@ -291,7 +290,7 @@ margin: auto;
     margin-bottom: 20px;
 }
 
-/* Forgot Password Specific */
+
 .forgot-icon, .verification-icon , .confirmation-icon {
     font-size: 60px;
     color: var(--primary-color);
@@ -332,7 +331,7 @@ margin: auto;
     color: var(--primary-color);
 }
 
-/* Lock Screen Specific */
+
 .user-avatar {
     width: 120px;
     height: 120px;
@@ -378,7 +377,7 @@ margin: auto;
     text-align: center;
 }
 
-/* Confirm Email Specific */
+
 
 .confirmation-code {
     display: flex;
@@ -401,7 +400,7 @@ margin: auto;
     box-shadow: 0 0 0 0.2rem rgba(0, 166, 125, 0.25);
 }
 
-/* Responsive Design */
+
 @media (max-width: 991px) {
     .auth-col-left, .left-side {
         display: none;

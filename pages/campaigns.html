@@ -9,269 +9,123 @@
     <link rel="stylesheet" href="../../assets/libs/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/pages/campaigns.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-  <div id="header-placeholder"></div>
+    <div id="header-placeholder"></div>
     <header class="main-header">
-  <div class="img-wrapper">
-    <img src="../assets/images/news-page/touching-hands-greetings-gesture-tourists-is-in-namibia-with-african-kids.webp" alt="touching-hands-greetings-gesture-tourists-is-in-namibia-with-african-kids" class="header-img">
-    <div class="overlay"></div>
-  </div>
-  <div class="inner-team">
-    <h2 class="header-title">Campaigns</h2>
-    <div class="header-span">
-    <span class="target-location">Home</span>
-    <i class="fa-solid fa-angles-right"></i>
-    <span class="main-target-page">Campaigns</span>
-    </div>
-    </div>
-</header>
- <!-- Filters -->
-  <div class="container">
-    <div class="filters">
-      <div class="search-bar">
-        <i class="fas fa-search"></i>
-        <input type="text" placeholder="Search campaigns...">
-      </div>
-      <div class="filter-options">
-        <select class="filter-select">
-          <option value="">Category</option>
-          <option value="education">Education</option>
-          <option value="healthcare">Healthcare</option>
-          <option value="environment">Environment</option>
-          <option value="poverty">Poverty Relief</option>
-          <option value="children">Children</option>
-          <option value="animals">Animal Welfare</option>
-        </select>
-        <select class="filter-select">
-          <option value="">Sort By</option>
-          <option value="newest">Newest</option>
-          <option value="progress">Most Progress</option>
-          <option value="ending">Ending Soon</option>
-          <option value="amount">Goal Amount</option>
-        </select>
-      </div>
-    </div>
-    
-    <!-- Featured Campaign -->
-    <div class="featured-campaign">
-      <div class="featured-content">
-        <div class="featured-image" style="background-image: url('../assets/images/campaigns/view-realistic-hands-touching-clear-flowing-water.webp')"></div>
-        <div class="featured-details">
-          <span class="featured-badge">Featured Campaign</span>
-          <h2 class="featured-title">Clean Water for Rural Communities</h2>
-          <p class="featured-desc">Help us bring clean and safe drinking water to rural communities facing water scarcity. Your donation will fund water purification systems and wells that can serve thousands of people.</p>
-          <div class="campaign-progress">
-<div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: 45%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-    <span class="progress-text">$9,000</span>
-    <span class="progress-percentage">45%</span>
-  </div>
-</div>
-            <div class="campaign-stats">
-              <span>$75,000 raised</span>
-              <span>$100,000 goal</span>
+        <div class="img-wrapper">
+            <img src="../assets/images/news-page/touching-hands-greetings-gesture-tourists-is-in-namibia-with-african-kids.webp" alt="touching-hands-greetings-gesture-tourists-is-in-namibia-with-african-kids" class="header-img">
+            <div class="overlay"></div>
+        </div>
+        <div class="inner-team">
+            <h2 class="header-title">Campaigns</h2>
+            <div class="header-span">
+                <span class="target-location">Home</span>
+                <i class="fa-solid fa-angles-right"></i>
+                <span class="main-target-page">Campaigns</span>
             </div>
-          </div>
-          <p class="campaign-time"><i class="far fa-clock"></i> 15 days left</p>
-          <button class="featured-btn">Donate Now</button>
         </div>
-      </div>
+    </header>
+    <div class="container">
+        <div class="filters">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-campaigns" placeholder="Search campaigns...">
+            </div>
+            <div class="filter-options">
+                <select class="filter-select" id="category-filter">
+                    <option value="">Category</option>
+                    <option value="Education">Education</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Environment">Environment</option>
+                    <option value="Poverty Relief">Poverty Relief</option>
+                    <option value="Children">Children</option>
+                    <option value="Animal Welfare">Animal Welfare</option>
+                    <option value="Disaster Relief">Disaster Relief</option>
+                    <option value="Arts & Culture">Arts & Culture</option>
+                </select>
+                <select class="filter-select" id="sort-filter">
+                    <option value="">Sort By</option>
+                    <option value="newest">Newest</option>
+                    <option value="progress">Most Progress</option>
+                    <option value="ending">Ending Soon</option>
+                    <option value="amount">Goal Amount</option>
+                </select>
+            </div>
+        </div>
+        <div class="featured-campaign">
+            <div class="featured-content">
+                <div class="featured-image" style="background-image: url('../assets/images/campaigns/view-realistic-hands-touching-clear-flowing-water.webp')"></div>
+                <div class="featured-details">
+                    <span class="featured-badge">Featured Campaign</span>
+                    <h2 class="featured-title">Clean Water for Rural Communities</h2>
+                    <p class="featured-desc">Help us bring clean and safe drinking water to rural communities facing water scarcity. Your donation will fund water purification systems and wells that can serve thousands of people.</p>
+                    <div class="campaign-progress">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 45%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                <span class="progress-text">$9,000</span>
+                                <span class="progress-percentage">45%</span>
+                            </div>
+                        </div>
+                        <div class="campaign-stats">
+                            <span>$75,000 raised</span>
+                            <span>$100,000 goal</span>
+                        </div>
+                    </div>
+                    <p class="campaign-time"><i class="far fa-clock"></i> 15 days left</p>
+                    <button class="featured-btn">Donate Now</button>
+                </div>
+            </div>
+        </div>
+        <!-- Categories -->
+        <div class="categories">
+            <h2 class="section-title">Campaign Categories</h2>
+            <div class="category-pills">
+                <div class="category-pill active" data-category="all">All</div>
+                <div class="category-pill" data-category="Education">Education</div>
+                <div class="category-pill" data-category="Healthcare">Healthcare</div>
+                <div class="category-pill" data-category="Environment">Environment</div>
+                <div class="category-pill" data-category="Poverty Relief">Poverty Relief</div>
+                <div class="category-pill" data-category="Children">Children</div>
+                <div class="category-pill" data-category="Animal Welfare">Animal Welfare</div>
+                <div class="category-pill" data-category="Disaster Relief">Disaster Relief</div>
+                <div class="category-pill" data-category="Arts & Culture">Arts & Culture</div>
+            </div>
+        </div>
+        <h2 class="section-title">Active Campaigns</h2>
+        <div class="campaigns-grid" id="campaigns-grid"></div>
+        <div class="load-more">
+            <button class="load-more-btn" id="load-more-btn">Load More Campaigns</button>
+        </div>
+        <div class="modal fade" id="reportCampaignModal" tabindex="-1" aria-labelledby="reportCampaignModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="reportCampaignModalLabel">Report Campaign</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="report-form">
+                            <div class="mb-3">
+                                <label for="reportUserName" class="form-label">Your Name</label>
+                                <input type="text" class="form-control" id="reportUserName" placeholder="Enter your name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="reportDescription" class="form-label">Report Description</label>
+                                <textarea class="form-control" id="reportDescription" rows="4" placeholder="Why are you reporting this campaign?" required></textarea>
+                            </div>
+                            <input type="hidden" id="reportCampaignId">
+                            <button type="submit" class="btn btn-primary">Submit Report</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <!-- Categories Section -->
-    <div class="categories">
-      <h2 class="section-title">Campaign Categories</h2>
-      <div class="category-pills">
-        <div class="category-pill active">All</div>
-        <div class="category-pill">Education</div>
-        <div class="category-pill">Healthcare</div>
-        <div class="category-pill">Environment</div>
-        <div class="category-pill">Poverty Relief</div>
-        <div class="category-pill">Children</div>
-        <div class="category-pill">Animal Welfare</div>
-        <div class="category-pill">Disaster Relief</div>
-        <div class="category-pill">Arts & Culture</div>
-      </div>
-    </div>
-    
-    <!-- Campaigns Grid -->
-    <h2 class="section-title">Active Campaigns</h2>
-    <div class="campaigns-grid">
-      <!-- Campaign 1 -->
-      <div class="campaign-card">
-        <div class="campaign-image" style="background-image: url('../assets/images/campaigns/front-view-colorful-pencils-with-copybooks-paints-purple-bag-light-yellow-desk.webp')">
-          <span class="campaign-badge">Urgent</span>
-        </div>
-        <div class="campaign-content">
-          <span class="campaign-category">Education</span>
-          <h3 class="campaign-title">School Supplies for Children</h3>
-          <p class="campaign-desc">Help provide essential school supplies for underprivileged children to support their education and future.</p>
-          <div class="campaign-progress">
-<div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-    <span class="progress-text">$32,500</span>
-    <span class="progress-percentage">65%</span>
-  </div>
-</div>
-            <div class="campaign-stats">
-              <span>$32,500 raised</span>
-              <span>$50,000 goal</span>
-            </div>
-          </div>
-        </div>
-        <div class="campaign-footer">
-          <span class="campaign-time"><i class="far fa-clock"></i> 8 days left</span>
-          <button class="donate-btn">Donate</button>
-        </div>
-      </div>
-      
-      <!-- Campaign 2 -->
-      <div class="campaign-card">
-        <div class="campaign-image" style="background-image: url('../assets/images/campaigns/young-girl-pediatrician-consultation-with-her-doctor.webp')">
-        </div>
-        <div class="campaign-content">
-          <span class="campaign-category">Healthcare</span>
-          <h3 class="campaign-title">Medical Aid for Children</h3>
-          <p class="campaign-desc">Support our initiative to provide medical supplies and healthcare services to children in need.</p>
-          <div class="campaign-progress">
-<div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-    <span class="progress-text">$24,000</span>
-    <span class="progress-percentage">40%</span>
-  </div>
-</div>
-            <div class="campaign-stats">
-              <span>$24,000 raised</span>
-              <span>$60,000 goal</span>
-            </div>
-          </div>
-        </div>
-        <div class="campaign-footer">
-          <span class="campaign-time"><i class="far fa-clock"></i> 21 days left</span>
-          <button class="donate-btn">Donate</button>
-        </div>
-      </div>
-      
-      <!-- Campaign 3 -->
-      <div class="campaign-card">
-        <div class="campaign-image" style="background-image: url('../assets/images/campaigns/reforestation-done-by-voluntary-group.webp')">
-          <span class="campaign-badge">Popular</span>
-        </div>
-        <div class="campaign-content">
-          <span class="campaign-category">Environment</span>
-          <h3 class="campaign-title">Reforestation Project</h3>
-          <p class="campaign-desc">Join our mission to plant 10,000 trees and combat deforestation in critical forest regions.</p>
-          <div class="campaign-progress">
-<div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-    <span class="progress-text">$42,500</span>
-    <span class="progress-percentage">85%</span>
-  </div>
-</div>
-            <div class="campaign-stats">
-              <span>$42,500 raised</span>
-              <span>$50,000 goal</span>
-            </div>
-          </div>
-        </div>
-        <div class="campaign-footer">
-          <span class="campaign-time"><i class="far fa-clock"></i> 5 days left</span>
-          <button class="donate-btn">Donate</button>
-        </div>
-      </div>
-      
-      <!-- Campaign 4 -->
-      <div class="campaign-card">
-        <div class="campaign-image" style="background-image: url('../assets/images/campaigns/person-reaching-dogs-through-fence-shelter.webp')">
-        </div>
-        <div class="campaign-content">
-          <span class="campaign-category">Animal Welfare</span>
-          <h3 class="campaign-title">Animal Shelter Renovation</h3>
-          <p class="campaign-desc">Help us renovate our animal shelter to provide better care for rescued animals waiting for forever homes.</p>
-          <div class="campaign-progress">
-<div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-    <span class="progress-text">$7,500</span>
-    <span class="progress-percentage">40%</span>
-  </div>
-</div>
-            <div class="campaign-stats">
-              <span>$7,500 raised</span>
-              <span>$30,000 goal</span>
-            </div>
-          </div>
-        </div>
-        <div class="campaign-footer">
-          <span class="campaign-time"><i class="far fa-clock"></i> 38 days left</span>
-          <button class="donate-btn">Donate</button>
-        </div>
-      </div>
-      
-      <!-- Campaign 5 -->
-      <div class="campaign-card">
-        <div class="campaign-image" style="background-image: url('../assets/images/campaigns/smiley-female-volunteer-holding-donations-box-with-food.webp')">
-        </div>
-        <div class="campaign-content">
-          <span class="campaign-category">Poverty Relief</span>
-          <h3 class="campaign-title">Food Bank Support</h3>
-          <p class="campaign-desc">Support our local food bank in providing meals for families experiencing food insecurity in our community.</p>
-          <div class="campaign-progress">
-<div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: 45%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-    <span class="progress-text">$9,000</span>
-    <span class="progress-percentage">45%</span>
-  </div>
-</div>
-            <div class="campaign-stats">
-              <span>$14,000 raised</span>
-              <span>$20,000 goal</span>
-            </div>
-          </div>
-        </div>
-        <div class="campaign-footer">
-          <span class="campaign-time"><i class="far fa-clock"></i> 12 days left</span>
-          <button class="donate-btn">Donate</button>
-        </div>
-      </div>
-      
-      <!-- Campaign 6 -->
-      <div class="campaign-card">
-        <div class="campaign-image" style="background-image: url('../assets/images/campaigns/two-people-holding-hands-after-earthquake.webp')">
-          <span class="campaign-badge">New</span>
-        </div>
-        <div class="campaign-content">
-          <span class="campaign-category">Disaster Relief</span>
-          <h3 class="campaign-title">Earthquake Relief Fund</h3>
-          <p class="campaign-desc">Provide emergency supplies and shelter for families affected by the recent earthquake in the region.</p>
-          <div class="campaign-progress">
-<div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: 45%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-    <span class="progress-text">$9,000</span>
-    <span class="progress-percentage">45%</span>
-  </div>
-</div>
-            <div class="campaign-stats">
-              <span>$15,000 raised</span>
-              <span>$100,000 goal</span>
-            </div>
-          </div>
-        </div>
-        <div class="campaign-footer">
-          <span class="campaign-time"><i class="far fa-clock"></i> 45 days left</span>
-          <button class="donate-btn">Donate</button>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Load More Button -->
-    <div class="load-more">
-      <button class="load-more-btn">Load More Campaigns</button>
-    </div>
-  </div>
-  <div id="footer-placeholder"></div>
-<script src="../../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../../assets/js/main.js"></script>
-<script src="../../assets/js/pages/campagins.js"></script>
+    <div id="footer-placeholder"></div>
+    <script src="../../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/pages/campaigns.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 
-      /* Article Cards */
+
         .card {
             margin-bottom: 30px;
             border: none;
@@ -112,7 +112,6 @@
             color: var(--color-accent);
         }
         
-        /* Calendar */
         .calendar-table {
             width: 100%;
         }
@@ -178,7 +177,6 @@
             background-color: var(--color-accent);
         }
         
-        /* Instagram Feed */
         .instagram-feed {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -199,7 +197,6 @@
     scale: 1.1;
 }
         
-        /* Recent News Widget */
         .recent-news-item {
             display: flex;
             margin-bottom: 15px;
@@ -227,7 +224,6 @@
             font-size: 12px;
         }
         
-        /* Pagination */
         .pagination {
             margin-top: 20px;
             justify-content: center;

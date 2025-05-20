@@ -18,6 +18,7 @@
 }
 
 
+
 .sidebar {
     width: 260px;
     background-color: var(--color-white);
@@ -26,7 +27,7 @@
     flex-direction: column;
     position: sticky;
     top: 0;
-    height: 100vh;
+    min-height: 100vh;
     z-index: 1000;
 }
 
@@ -549,4 +550,18 @@ td {
     .section-title {
         font-size: var(--font-size-base);
     }
+}
+
+.badge-success{
+        background-color: rgba(33, 52, 48, 0.1);
+    color: var(--color-primary);
+}
+
+.badge-danger {
+            background-color: rgba(33, 52, 48, 0.1);
+    color: red;
+}
+.badge-danger {
+            background-color: rgba(33, 52, 48, 0.1);
+    color: red;
 }

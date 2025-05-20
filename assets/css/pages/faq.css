@@ -1,4 +1,3 @@
-        /* FAQ Section 2 */
         .FAQ-sec2 {
             margin-top: var(--space-xxl) !important;
             margin-bottom: var(--space-xxl) !important;
@@ -143,7 +142,7 @@
             font-size: var(--font-size-base);
         }
 
-        /* FAQ Section 4 */
+        
         .sec4-background {
             height: 400px;
             background-image: url('../../images/faq/mature-woman-donating-clothes.webp');
@@ -213,7 +212,7 @@
             background-color: var(--color-hover);
         }
 
-        /* FAQ Section 3 */
+        
         .FAQ-sec3 {
             margin-top: var(--space-xxl);
             padding-top: var(--space-xxl);
@@ -237,7 +236,7 @@
             border-radius: 10px;
         }
 
-        /* Responsive Adjustments */
+        
         @media (max-width: 768px) {
             .FAQ-sec2 .accordion {
                 width: 100%;

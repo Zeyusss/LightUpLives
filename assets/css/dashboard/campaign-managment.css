@@ -6,8 +6,7 @@
     --space-xl: 32px;
     --radius-sm: 4px;
     --radius-md: 8px;
- }
-
+}
 
 .full-width-container {
     display: flex;
@@ -15,7 +14,6 @@
     max-width: none !important;
     min-height: 100vh;
 }
-
 
 .sidebar {
     width: 260px;
@@ -25,8 +23,23 @@
     flex-direction: column;
     position: sticky;
     top: 0;
-    height: 100vh;
+    min-height: 100vh;
     z-index: 1000;
+}
+
+th:first-child, td:first-child {
+    width: 80px;
+    font-weight: 500;
+    color: var(--color-dark);
+}
+
+.campaign-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 150px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
 }
 
 .sidebar-toggle {
@@ -134,14 +147,12 @@
     opacity: 0.7;
 }
 
-
 .main-content {
     flex: 1;
     padding: var(--space-xl);
     width: calc(100% - 260px) !important;
     max-width: none !important;
 }
-
 
 .page-header {
     display: flex;
@@ -183,7 +194,6 @@
     padding: var(--space-xs) var(--space-sm);
 }
 
-
 .section {
     background-color: var(--color-white);
     border-radius: var(--radius-md);
@@ -205,7 +215,6 @@
     color: var(--color-dark);
     margin: 0;
 }
-
 
 .filters {
     display: flex;
@@ -245,7 +254,6 @@
     box-shadow: 0 0 0 2px rgba(33, 52, 48, 0.2);
 }
 
-
 .table-container {
     width: 100% !important;
     overflow-x: auto;
@@ -272,7 +280,6 @@ th {
 td {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
-
 
 .modal-content {
     border-radius: var(--radius-md);
@@ -324,8 +331,11 @@ td {
 .alert-danger {
     font-size: var(--font-size-sm);
     padding: var(--space-xs) var(--space-sm);
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border-radius: var(--radius-sm);
+    margin-top: var(--space-xs);
 }
-
 
 .btn {
     padding: var(--space-xs) var(--space-sm);
@@ -370,7 +380,6 @@ td {
     font-size: var(--font-size-sm);
 }
 
-
 .badge {
     padding: var(--space-xs) var(--space-sm);
     border-radius: var(--radius-sm);
@@ -378,6 +387,15 @@ td {
     font-weight: 500;
 }
 
+.badge-success{
+        background-color: rgba(33, 52, 48, 0.1);
+    color: var(--color-primary);
+}
+
+.badge-danger {
+            background-color: rgba(33, 52, 48, 0.1);
+    color: red;
+}
 .badge-primary {
     background-color: rgba(33, 52, 48, 0.1);
     color: var(--color-primary);
@@ -397,7 +415,6 @@ td {
     background-color: rgba(108, 117, 125, 0.1);
     color: #6c757d;
 }
-
 
 .pagination {
     display: flex;
@@ -431,6 +448,158 @@ td {
     border-color: var(--color-primary);
 }
 
+/* Campaign Modal Styling */
+.campaign-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    transition: opacity 0.3s ease;
+}
+
+.campaign-modal.d-none {
+    display: none;
+}
+
+.campaign-modal .box {
+    background-color: var(--color-white);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    width: 90%;
+    max-width: 600px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.campaign-modal .inner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.campaign-modal .close {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-md);
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.campaign-modal .close:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: rotate(90deg);
+}
+
+.campaign-modal .close i {
+    font-size: var(--font-size-lg);
+    color: var(--color-dark);
+}
+
+.campaign-modal .modal-title {
+    font-weight: 700;
+    color: var(--color-dark);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-md);
+}
+
+.campaign-modal .campaign-image {
+   width: 250px;
+    height: 250px;
+    margin: var(--space-md) auto;
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.campaign-modal .input-group {
+    margin-bottom: var(--space-md);
+    display: flex;
+    align-items: center;
+}
+
+.campaign-modal .input-group-text {
+    background-color: rgba(0, 0, 0, 0.03);
+    font-weight: 500;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    color: var(--color-dark);
+    width: 100px;
+    justify-content: center;
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+    padding: var(--space-xs) var(--space-sm);
+}
+
+.campaign-modal .form-control,
+.campaign-modal .form-select {
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    padding: var(--space-xs) var(--space-sm);
+    flex: 1;
+    transition: all 0.3s ease;
+}
+
+.campaign-modal .form-control:focus,
+.campaign-modal .form-select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(33, 52, 48, 0.2);
+    outline: none;
+}
+
+.campaign-modal .alert-danger {
+    font-size: var(--font-size-sm);
+    padding: var(--space-xs) var(--space-sm);
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border-radius: var(--radius-sm);
+    margin-top: var(--space-xs);
+}
+
+.campaign-modal .submit-btn,
+.campaign-modal .update-btn {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(33, 52, 48, 0.2);
+    width: 150px;
+    margin: 0 var(--space-sm);
+}
+
+.campaign-modal .submit-btn:hover,
+.campaign-modal .update-btn:hover {
+    background-color: #1b2a27;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(33, 52, 48, 0.3);
+}
+
+.campaign-modal .update-btn.d-none {
+    display: none;
+}
 
 @media (max-width: 991px) {
     .full-width-container {
@@ -499,4 +668,20 @@ td {
     .section-title {
         font-size: var(--font-size-base);
     }
+
+    .campaign-modal .box {
+        padding: var(--space-md);
+    }
+
+    .campaign-modal .campaign-image {
+        width: 80px;
+        height: 80px;
+    }
 }
+
+.desc-edit {
+    width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+

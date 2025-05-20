@@ -403,3 +403,36 @@ white-space: nowrap;
           text-underline-offset : 5px ;
         }
 
+
+        .campaign-card .campaign-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.campaign-card .report-btn {
+    margin-left: 10px;
+}
+.table-container .badge {
+    padding: 5px 10px;
+    border-radius: 12px;
+}
+.table-container .badge-pending {
+    background-color: #ffc107;
+    color: black;
+}
+.table-container .badge-approved {
+    background-color: #28a745;
+    color: white;
+}
+.table-container .badge-rejected {
+    background-color: #dc3545;
+    color: white;
+}
+.table-container .actions .btn {
+    margin-right: 4px;
+}
+.pagination-item.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}

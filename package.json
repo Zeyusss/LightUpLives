@@ -1,0 +1,26 @@
+{
+  "name": "lumina-platform",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zeyusss/Lumina-Platform.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zeyusss/Lumina-Platform/issues"
+  },
+  "homepage": "https://github.com/Zeyusss/Lumina-Platform#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.18.2",         
+    "http-proxy-middleware": "^2.0.6", 
+    "json-server": "^0.17.4"        
+  }
+}

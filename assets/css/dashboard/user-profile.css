@@ -1,0 +1,782 @@
+:root {
+    --space-xs: 8px;
+    --space-sm: 12px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+}
+
+body {
+    color: var(--color-text);
+    background-color: #f8f9fa;
+}
+
+.navbar-brand {
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+.navbar-nav .nav-link {
+    color: var(--color-white);
+}
+
+.btn-primary {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+
+.btn-primary:hover {
+    background-color: #007e5a;
+    border-color: #007e5a;
+}
+
+.btn-accent {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-white);
+}
+
+.btn-accent:hover {
+    background-color: var(--color-hover);
+    border-color: var(--color-hover);
+    color: var(--color-white);
+}
+
+.profile-img-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto var(--space-md);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--color-secondary);
+}
+
+.profile-img-upload {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+}
+
+.profile-name {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+}
+
+.profile-role {
+    font-size: var(--font-size-sm);
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--space-md);
+}
+
+.form-control:focus {
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 0.25rem rgba(0, 147, 104, 0.25);
+}
+
+.pledge-card {
+    border-left: 4px solid var(--color-accent);
+}
+
+.pledge-amount {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-accent);
+}
+
+.pledge-date {
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+}
+
+.pledge-campaign {
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+.profile-section {
+    margin-bottom: var(--space-lg);
+}
+
+.section-title {
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+}
+
+.nav-pills .nav-link.active {
+    background-color: var(--color-secondary);
+}
+
+.nav-pills .nav-link {
+    color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+    .profile-img-container {
+        width: 120px;
+        height: 120px;
+    }
+    .campaigns-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+/* Original Campaign Modal Styling (kept for compatibility) */
+.campaign-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    transition: opacity 0.3s ease;
+}
+
+.campaign-modal.d-none {
+    display: none;
+}
+
+.campaign-modal .box {
+    background-color: var(--color-white);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    width: 90%;
+    max-width: 600px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.campaign-modal .inner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.campaign-modal .close {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-md);
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.campaign-modal .close:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: rotate(90deg);
+}
+
+.campaign-modal .close i {
+    font-size: var(--font-size-lg);
+    color: var(--color-dark);
+}
+
+.campaign-modal .modal-title {
+    font-weight: 700;
+    color: var(--color-dark);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-md);
+}
+
+.campaign-modal .campaign-image {
+    width: 100px;
+    margin: var(--space-md) auto;
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.campaign-modal .input-group {
+    margin-bottom: var(--space-md);
+    display: flex;
+    align-items: center;
+}
+
+.campaign-modal .input-group-text {
+    background-color: rgba(0, 0, 0, 0.03);
+    font-weight: 500;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    color: var(--color-dark);
+    width: 100px;
+    justify-content: center;
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+    padding: var(--space-xs) var(--space-sm);
+}
+
+.campaign-modal .form-control,
+.campaign-modal .form-select {
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    padding: var(--space-xs) var(--space-sm);
+    flex: 1;
+    transition: all 0.3s ease;
+}
+
+.campaign-modal .form-control:focus,
+.campaign-modal .form-select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(33, 52, 48, 0.2);
+    outline: none;
+}
+
+.campaign-modal .alert-danger {
+    font-size: var(--font-size-sm);
+    padding: var(--space-xs) var(--space-sm);
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border-radius: var(--radius-sm);
+    margin-top: var(--space-xs);
+}
+
+.campaign-modal .submit-btn,
+.campaign-modal .update-btn {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(33, 52, 48, 0.2);
+    width: 150px;
+    margin: 0 var(--space-sm);
+}
+
+.campaign-modal .submit-btn:hover,
+.campaign-modal .update-btn:hover {
+    background-color: #1b2a27;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(33, 52, 48, 0.3);
+}
+
+.campaign-modal .update-btn.d-none {
+    display: none;
+}
+
+.campaign-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.create-campaign-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.create-campaign-form h2 {
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.submit-btn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #218838;
+}
+
+.campaigns-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.campaign-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.campaign-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.campaign-category {
+    color: #6c757d;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.campaign-title {
+    font-size: 18px;
+    color: #343a40;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.campaign-desc {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #495057;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.campaign-progress {
+    margin-bottom: 10px;
+}
+
+.progress {
+    background-color: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 20px;
+    margin-bottom: 5px;
+}
+
+.progress-bar {
+    background-color: #28a745;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.campaign-stats {
+    display: flex;
+    justify-content: space-between;
+    color: #343a40;
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.campaign-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.campaign-time {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.donate-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.donate-btn:hover {
+    background-color: #0069d9;
+}
+
+.donor-count {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 10px;
+}
+
+/* Campaign Cards */
+.campaigns-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xxl);
+}
+
+.campaign-card {
+    background-color: var(--color-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.campaign-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.campaign-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+}
+
+.campaign-badge {
+    position: absolute;
+    top: var(--space-xs);
+    right: var(--space-xs);
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    padding: 4px var(--space-xs);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+.campaign-content {
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.campaign-category {
+    color: var(--color-secondary);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+    display: block;
+}
+
+.campaign-title {
+    font-size: var(--font-size-lg);
+    color: var(--color-dark);
+    margin-bottom: var(--space-xs);
+    font-weight: 600;
+}
+
+.campaign-desc {
+    margin-bottom: var(--space-md);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.campaign-progress {
+    margin-bottom: var(--space-xs);
+}
+
+.campaign-stats {
+    display: flex;
+    justify-content: space-between;
+    color: var(--color-dark);
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+}
+
+.campaign-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm);
+    border-top: 1px solid #f0f0f0;
+}
+
+.campaign-time {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+}
+
+.donate-btn {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    border: none;
+    padding: 8px var(--space-md);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.donate-btn:hover {
+    background-color: var(--color-hover);
+}
+
+.campaign-updates {
+    margin-top: 10px;
+}
+
+.update-text {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.update-text small {
+    color: #888;
+    margin-left: 5px;
+}
+
+.modal {
+    display: none;
+}
+
+.modal.d-none {
+    display: none !important;
+}
+
+.modal.show {
+    display: block;
+}
+
+/* New Bootstrap Modal Styling for Create Campaign Modal */
+.modal.fade {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    transition: opacity 0.3s ease;
+}
+
+.modal.fade .modal-dialog {
+    transition: transform 0.3s ease-out;
+    max-width: 600px;
+    width: 90%;
+    margin: 1.75rem auto;
+}
+
+.modal.show .modal-dialog {
+    transform: none;
+}
+
+.modal-content {
+    background-color: var(--color-white);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: var(--space-lg);
+    position: relative;
+    animation: slideUp 0.4s ease;
+}
+
+.modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    padding: var(--space-md) var(--space-lg);
+}
+
+.modal-title {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-dark);
+}
+
+.modal-body {
+    padding: var(--space-lg);
+}
+
+.modal-footer {
+    border-top: 1px solid #dee2e6;
+    padding: var(--space-md) var(--space-lg);
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+}
+
+.campaign-image {
+    width: 250px;
+    height: 250px;
+   margin: auto;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-md);
+    display: block;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        object-fit: cover;
+        border: 8px solid rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+    margin-bottom: var(--space-md);
+    display: flex;
+    align-items: center;
+}
+
+.input-group-text {
+    background-color: rgba(0, 0, 0, 0.03);
+    font-weight: 500;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    color: var(--color-dark);
+    width: 120px;
+    justify-content: center;
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+    padding: var(--space-xs) var(--space-sm);
+}
+
+.form-control,
+.form-select {
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    padding: var(--space-xs) var(--space-sm);
+    flex: 1;
+    font-size: var(--font-size-base);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(33, 52, 48, 0.2);
+    outline: none;
+}
+
+.alert-danger {
+    font-size: var(--font-size-sm);
+    padding: var(--space-xs) var(--space-sm);
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border-radius: var(--radius-sm);
+    margin-top: var(--space-xs);
+}
+
+.submit-btn {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(33, 52, 48, 0.2);
+    width: 150px;
+}
+
+.submit-btn:hover {
+    background-color: #1b2a27;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(33, 52, 48, 0.3);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+    color: var(--color-white);
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-img-container {
+        width: 120px;
+        height: 120px;
+    }
+    .campaigns-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    .modal-dialog {
+        width: 95%;
+        margin: 1rem auto;
+    }
+    .input-group-text {
+        width: 100px;
+        font-size: var(--font-size-sm);
+    }
+    .submit-btn {
+        width: 120px;
+    }
+}
+
+.desc-edit {
+    width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+}

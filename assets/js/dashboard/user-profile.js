@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     window.location.href = '../../pages/auth/login.html';
     return;
   }
-  // Fetch latest user data
+
   try {
     const res = await fetch(`http://localhost:3000/users/${user.id}`);
     if (!res.ok) throw new Error('Failed to fetch user data');
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       }
     });
   }
-  // 90-day profile edit restriction
+
   if (user.lastUpdated && profileForm) {
     const last = new Date(user.lastUpdated);
     const now = new Date();
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       saveBtn.textContent = `Can update again in ${90 - days} days`;
     }
   }
-  // Profile Settings Save
+
   if (profileForm) {
     profileForm.addEventListener('submit', async function (e) {
       e.preventDefault();
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       }
     });
   }
-  // Load account stats
+
   async function loadStats(userId) {
     try {
       const res = await fetch(`http://localhost:3000/pledges?userId=${userId}`);
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       document.querySelector('.stat-active-pledges').textContent = '0';
     }
   }
-  // Load campaigner stats
+
   async function loadCampaignerStats(userId) {
     try {
       const campaignRes = await fetch(`http://localhost:3000/campaigns?creatorId=${userId}`);
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       document.querySelector('.stat-active-campaigns').textContent = '0';
     }
   }
-  // Load pledge history
+
   async function loadPledgeHistory(userId) {
     try {
       const res = await fetch(`http://localhost:3000/pledges?userId=${userId}`);
@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       document.querySelector('#pledges').innerHTML = '<p class="text-muted">Failed to load pledges.</p>';
     }
   }
-  // Load campaigns
+
   async function loadCampaigns(userId) {
     try {
       const res = await fetch(`http://localhost:3000/campaigns?creatorId=${userId}`);
@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       const container = document.getElementById('myCampaignsContainer');
       const noCampaignsMsg = document.getElementById('noCampaignsMsg');
       container.innerHTML = '';
-      // Check and update campaign status based on endDate
+
       const today = new Date();
       for (const campaign of campaigns) {
         const endDate = new Date(campaign.endDate);
@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', async function () {
           }
         }
       }
-      // Reload campaigns after updates
+
       const updatedRes = await fetch(`http://localhost:3000/campaigns?creatorId=${userId}`);
       const updatedCampaigns = await updatedRes.json();
       if (updatedCampaigns.length === 0) {
@@ -370,7 +370,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
   }
 
-  //post a campaign update
+
   async function postCampaignUpdate(campaignId, updateText) {
     console.log('Posting update for campaign:', campaignId, 'Text:', updateText); 
     try {
@@ -418,7 +418,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
   }
 
-  //delete a campaign
+
   async function deleteCampaign(campaignId) {
     console.log('Deleting campaign:', campaignId); 
     try {
@@ -549,7 +549,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
   }
 
-  // Update campaign modal 
   if (hideUpdateModal) {
     hideUpdateModal.addEventListener('click', () => {
       console.log('Closing update modal'); 
@@ -697,7 +696,11 @@ document.addEventListener('DOMContentLoaded', async function () {
           amountRaised: 0,
           backers: 0,
           updates: [],
-          rejectionReason: '', 
+          rejectionReason: '',    
+          createdAt: new Date().toISOString(),
+          donors:[],
+           fundingStatus:[],
+           creatorName:[]
         };
 
         try {
@@ -724,7 +727,10 @@ document.addEventListener('DOMContentLoaded', async function () {
       }
     });
   }
-
+document.getElementById('logoutBtn').addEventListener('click', function () {
+  localStorage.removeItem('user'); 
+  window.location.href = '../../pages/auth/login.html'; 
+});
 
   await loadStats(user.id);
   await loadPledgeHistory(user.id);

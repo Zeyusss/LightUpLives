@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     window.location.href = '../../pages/auth/login.html';
     return;
   }
+
   // DOM Elements
   const filterPendingBtn = document.getElementById('filterPending');
   const filterApprovedBtn = document.getElementById('filterApproved');
@@ -12,8 +13,251 @@ document.addEventListener('DOMContentLoaded', async function () {
   const container = document.getElementById('pendingCampaignsTable');
   const rejectionReasonModal = document.getElementById('rejectionReasonModal');
   const confirmRejectBtn = document.getElementById('confirmReject');
+  const totalCampaignsSpan = document.getElementById('total-campaigns');
+  const activeCampaignsSpan = document.getElementById('active-campaigns');
+  const totalUsersSpan = document.getElementById('total-users');
+  const totalPledgesSpan = document.getElementById('total-pledges');
+  const analyticsSection = document.getElementById('analytics-section');
   let currentCampaignId = null;
-  
+
+  // Load Stats
+  async function loadStats() {
+    try {
+      // Total Campaigns
+      const campaignsRes = await fetch('http://localhost:3000/campaigns');
+      if (!campaignsRes.ok) throw new Error(`Failed to fetch campaigns: ${campaignsRes.status} ${campaignsRes.statusText}`);
+      const campaigns = await campaignsRes.json();
+      totalCampaignsSpan.textContent = campaigns.length;
+
+      // Active Campaigns (approved and confirmed)
+      const activeCampaigns = campaigns.filter(c => c.approvalStatus === 'approved' && c.status === 'confirmed');
+      activeCampaignsSpan.textContent = activeCampaigns.length;
+
+      // Total Users
+      const usersRes = await fetch('http://localhost:3000/users');
+      if (!usersRes.ok) throw new Error(`Failed to fetch users: ${usersRes.status} ${usersRes.statusText}`);
+      const users = await usersRes.json();
+      totalUsersSpan.textContent = users.length.toLocaleString();
+
+      // Total Pledges
+      const pledgesRes = await fetch('http://localhost:3000/pledges');
+      if (!pledgesRes.ok) throw new Error(`Failed to fetch pledges: ${pledgesRes.status} ${campaignsRes.statusText}`);
+      const pledges = await pledgesRes.json();
+      const totalPledges = pledges.reduce((sum, p) => sum + (p.amount || 0), 0);
+      totalPledgesSpan.textContent = `$${totalPledges.toLocaleString()}`;
+    } catch (error) {
+      console.error('Error loading stats:', error.message);
+      totalCampaignsSpan.textContent = 'N/A';
+      activeCampaignsSpan.textContent = 'N/A';
+      totalUsersSpan.textContent = 'N/A';
+      totalPledgesSpan.textContent = 'N/A';
+    }
+  }
+
+  // Load Charts
+  async function loadCharts() {
+    try {
+      // Verify Chart.js is available
+      if (typeof Chart === 'undefined') {
+        throw new Error('Chart.js library is not loaded');
+      }
+
+      // Fetch campaigns and pledges
+      const campaignsRes = await fetch('http://localhost:3000/campaigns');
+      if (!campaignsRes.ok) throw new Error(`Failed to fetch campaigns: ${campaignsRes.status} ${campaignsRes.statusText}`);
+      const campaigns = await campaignsRes.json();
+
+      const pledgesRes = await fetch('http://localhost:3000/pledges');
+      if (!pledgesRes.ok) throw new Error(`Failed to fetch pledges: ${pledgesRes.status} ${pledgesRes.statusText}`);
+      const pledges = await pledgesRes.json();
+
+      if (campaigns.length === 0 && pledges.length === 0) {
+        analyticsSection.innerHTML = `<p class="text-muted">No data available for analytics.</p>`;
+        return;
+      }
+
+      // Get canvas elements
+      const categoryCanvas = document.getElementById('campaignsByCategoryChart');
+      const pledgesCanvas = document.getElementById('pledgesOverTimeChart');
+      if (!categoryCanvas || !pledgesCanvas) {
+        throw new Error('Canvas elements not found');
+      }
+
+      // Bar Chart: Campaigns by Category
+      const categories = [...new Set(campaigns.map(c => c.category || 'Unknown'))];
+      const categoryCounts = categories.map(cat => 
+        campaigns.filter(c => c.category === cat).length
+      );
+
+      new Chart(categoryCanvas, {
+        type: 'bar',
+        data: {
+          labels: categories,
+          datasets: [{
+            label: 'Number of Campaigns',
+            data: categoryCounts,
+            backgroundColor: [
+              'rgba(0, 147, 104, 0.7)', // --color-primary
+              'rgba(236, 163, 12, 0.7)', // --color-accent
+            ],
+            borderColor: [
+              'rgba(0, 147, 104, 1)',
+              'rgba(236, 163, 12, 1)',
+            ],
+            borderWidth: 1,
+            borderRadius: 4,
+            barPercentage: 0.4,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'top',
+              labels: {
+                font: { size: 14, weight: '600' },
+                color: '#4a5568', // --color-dark
+              }
+            },
+            title: {
+              display: true,
+              text: 'Campaigns by Category',
+              font: { size: 18, weight: '700' },
+              color: '#213430', // --color-secondary
+              padding: { top: 10, bottom: 20 }
+            },
+            tooltip: {
+              backgroundColor: 'rgba(33, 52, 48, 0.9)',
+              titleFont: { size: 14, weight: '600' },
+              bodyFont: { size: 12 },
+              padding: 10,
+              cornerRadius: 4,
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Count',
+                font: { size: 14, weight: '600' },
+                color: '#4a5568',
+              },
+              grid: { color: 'rgba(0, 0, 0, 0.05)' },
+              ticks: { color: '#4a5568', font: { size: 12 } },
+            },
+            x: {
+              title: {
+                display: true,
+                text: 'Category',
+                font: { size: 14, weight: '600' },
+                color: '#4a5568',
+              },
+              grid: { display: false },
+              ticks: { color: '#4a5568', font: { size: 12 } },
+            }
+          },
+          animation: {
+            duration: 1000,
+            easing: 'easeOutQuart',
+          }
+        }
+      });
+
+      // Line Chart: Pledge Amounts Over Time (by Month)
+      const months = ['2025-04', '2025-05']; // Based on db.json dates
+      const monthlyPledges = months.map(month => {
+        const monthPledges = pledges.filter(p => 
+          p.createdAt && p.createdAt.startsWith(month)
+        );
+        return monthPledges.reduce((sum, p) => sum + (p.amount || 0), 0);
+      });
+
+      new Chart(pledgesCanvas, {
+        type: 'line',
+        data: {
+          labels: months.map(m => new Date(m).toLocaleString('default', { month: 'short', year: 'numeric' })),
+          datasets: [{
+            label: 'Total Pledge Amount ($)',
+            data: monthlyPledges,
+            borderColor: 'rgba(0, 147, 104, 1)', // --color-primary
+            backgroundColor: 'rgba(0, 147, 104, 0.2)',
+            fill: true,
+            tension: 0.4,
+            pointBackgroundColor: 'rgba(0, 147, 104, 1)',
+            pointBorderColor: '#ffffff',
+            pointBorderWidth: 2,
+            pointRadius: 5,
+            pointHoverRadius: 7,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'top',
+              labels: {
+                font: { size: 14, weight: '600' },
+                color: '#4a5568',
+              }
+            },
+            title: {
+              display: true,
+              text: 'Pledge Amounts Over Time',
+              font: { size: 18, weight: '700' },
+              color: '#213430',
+              padding: { top: 10, bottom: 20 }
+            },
+            tooltip: {
+              backgroundColor: 'rgba(33, 52, 48, 0.9)',
+              titleFont: { size: 14, weight: '600' },
+              bodyFont: { size: 12 },
+              padding: 10,
+              cornerRadius: 4,
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Amount ($)',
+                font: { size: 14, weight: '600' },
+                color: '#4a5568',
+              },
+              grid: { color: 'rgba(0, 0, 0, 0.05)' },
+              ticks: {
+                color: '#4a5568',
+                font: { size: 12 },
+                callback: value => `$${value.toLocaleString()}`,
+              },
+            },
+            x: {
+              title: {
+                display: true,
+                text: 'Month',
+                font: { size: 14, weight: '600' },
+                color: '#4a5568',
+              },
+              grid: { display: false },
+              ticks: { color: '#4a5568', font: { size: 12 } },
+            }
+          },
+          animation: {
+            duration: 1000,
+            easing: 'easeOutQuart',
+          }
+        }
+      });
+
+    } catch (error) {
+      console.error('Error loading charts:', error.message, error.stack);
+      analyticsSection.innerHTML = `<p class="text-muted">Failed to load analytics: ${error.message}</p>`;
+    }
+  }
+
   async function loadCampaigns(filterStatus = 'pending') {
     try {
       const res = await fetch(`http://localhost:3000/campaigns?approvalStatus=${filterStatus}`);
@@ -56,13 +300,26 @@ document.addEventListener('DOMContentLoaded', async function () {
           </td>`;
         container.appendChild(row);
       }
-      
+
+      // Attach event listeners for View buttons
       document.querySelectorAll('.view-campaign').forEach(button => {
         button.addEventListener('click', (e) => {
           const campaignId = e.target.dataset.id;
-          window.location.href = `../../pages/campaigns/campaign.html?id=${campaignId}`;
+          if (!campaignId) {
+            console.error('View button clicked but campaignId is missing');
+            alert('Error: Campaign ID not found. Please try again.');
+            return;
+          }
+          console.log(`Redirecting to campaign page with ID: ${campaignId}`);
+          try {
+            window.location.href = `../../pages/donate.html?id=${campaignId}`;
+          } catch (error) {
+            console.error('Error during redirect:', error.message);
+            alert('Error redirecting to campaign page. Please check the console for details.');
+          }
         });
       });
+
       document.querySelectorAll('.approve-campaign').forEach(button => {
         button.addEventListener('click', async (e) => {
           const campaignId = e.target.dataset.id;
@@ -82,7 +339,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       container.innerHTML = `<tr><td colspan="6" class="text-muted">Failed to load campaigns: ${error.message}</td></tr>`;
     }
   }
-  
+
   async function updateCampaignStatus(campaignId, approvalStatus, rejectionReason = '') {
     try {
       const res = await fetch(`http://localhost:3000/campaigns/${campaignId}`);
@@ -110,7 +367,8 @@ document.addEventListener('DOMContentLoaded', async function () {
       alert(`Failed to update campaign status: ${error.message}`);
     }
   }
-  // filter 
+
+  // Filter Buttons
   filterPendingBtn.addEventListener('click', () => {
     filterPendingBtn.classList.add('active');
     filterApprovedBtn.classList.remove('active');
@@ -129,6 +387,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     filterApprovedBtn.classList.remove('active');
     loadCampaigns('rejected');
   });
+
   confirmRejectBtn.addEventListener('click', async () => {
     const rejectionReason = document.getElementById('rejectionReason').value.trim();
     if (currentCampaignId) {
@@ -138,10 +397,8 @@ document.addEventListener('DOMContentLoaded', async function () {
       currentCampaignId = null;
     }
   });
-  
-  filterPendingBtn.classList.add('active');
-  await loadCampaigns('pending');
-  // load campaigner requests
+
+  // Load Campaigner Requests
   async function loadCampaignerRequests() {
     const requestsBody = document.getElementById('campaigner-requests-body');
     try {
@@ -167,7 +424,7 @@ document.addEventListener('DOMContentLoaded', async function () {
           </td>`;
         requestsBody.appendChild(row);
       });
-      
+
       requestsBody.addEventListener('click', async e => {
         if (!e.target.matches('button')) return;
         const userId = e.target.dataset.id;
@@ -203,5 +460,14 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
   }
 
+  document.getElementById('logoutBtn').addEventListener('click', function () {
+    localStorage.removeItem('user');
+    window.location.href = '../../pages/auth/login.html';
+  });
+
+  filterPendingBtn.classList.add('active');
+  await loadStats();
+  await loadCampaigns('pending');
   await loadCampaignerRequests();
+  await loadCharts();
 });

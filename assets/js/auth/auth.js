@@ -77,14 +77,13 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       localStorage.setItem("user", JSON.stringify(user));
       if (user.role === "admin") {
-        window.location.href = "../../dashboard/admin-panel/index.html";
+        window.location.href = "../../../dashboard/admin-panel/index.html";
       } else {
-        window.location.href = "../../dashboard/bucker-profile/bucker-profile.html"; 
+        window.location.href = "../../../dashboard/user-profile/user-profile.html"; 
       }
     });
   }
 });
-
 
 const logoutBtn = document.getElementById("logout-btn");
 
@@ -95,4 +94,3 @@ if (logoutBtn) {
     window.location.href = "../../pages/auth/login.html";
   });
 }
-

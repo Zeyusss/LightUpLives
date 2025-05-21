@@ -281,6 +281,10 @@ async function deleteReport(reportId) {
     searchReportsInput.addEventListener('input', () => {
         loadReports(1, reportStatusFilter.value, dateFromInput.value, dateToInput.value, searchReportsInput.value);
     });
+document.getElementById('logoutBtn').addEventListener('click', function () {
+  localStorage.removeItem('user'); 
+  window.location.href = '../../pages/auth/login.html'; 
+});
 
     confirmRejectBtn.addEventListener('click', async () => {
         if (!currentReportId) {

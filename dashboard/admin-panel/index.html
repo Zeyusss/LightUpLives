@@ -36,16 +36,20 @@
                         <li class="nav-item">
                             <a href="./pledges.html" class="nav-link"><i class="fas fa-hand-holding-usd"></i> Pledges</a>
                         </li>
+
                     </ul>
                 </div>
                 <div class="nav-section">
                     <h3 class="nav-section-title">System</h3>
                     <ul class="nav-list">
                         <li class="nav-item">
-                            <a href="./events.html" class="nav-link"><i class="fas fa-cog"></i> Events</a>
+                            <a href="./events-management.html" class="nav-link"><i class="fas fa-calendar-alt"></i> Events</a>
                         </li>
                         <li class="nav-item">
                             <a href="./reports.html" class="nav-link"><i class="fas fa-file-alt"></i> Reports</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a href="./news-management.html" class="nav-link"><i class="fas fa-newspaper"></i> News</a>
                         </li>
                     </ul>
                 </div>
@@ -55,6 +59,7 @@
                 <div>
                     <div class="user-name">Admin User</div>
                     <div class="user-role">Administrator</div>
+                    <button id="logoutBtn" class="btn btn-outline-danger">Logout</button>
                 </div>
             </div>
         </aside>
@@ -71,23 +76,38 @@
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-title">Total Campaigns</div>
-                    <div class="stat-value">128</div>
-                    <div class="stat-description">+12% from last month</div>
+                    <div class="stat-value" id="total-campaigns">0</div>
+                    <div class="stat-description">All campaigns in the system</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-title">Active Campaigns</div>
-                    <div class="stat-value">84</div>
-                    <div class="stat-description">70% of total campaigns</div>
+                    <div class="stat-value" id="active-campaigns">0</div>
+                    <div class="stat-description">Approved and confirmed campaigns</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-title">Total Users</div>
-                    <div class="stat-value">3,254</div>
-                    <div class="stat-description">+8% from last month</div>
+                    <div class="stat-value" id="total-users">0</div>
+                    <div class="stat-description">All registered users</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-title">Total Pledges</div>
-                    <div class="stat-value">$245,678</div>
-                    <div class="stat-description">+15% from last month</div>
+                    <div class="stat-value" id="total-pledges">$0</div>
+                    <div class="stat-description">Sum of all pledge amounts</div>
+                </div>
+            </div>
+            <div class="section" id="analytics-section">
+                <div class="section-header">
+                    <h2 class="section-title">Analytics</h2>
+                </div>
+                <div class="section-content">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <canvas id="campaignsByCategoryChart"></canvas>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <canvas id="pledgesOverTimeChart"></canvas>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="section">
@@ -140,7 +160,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Rejection Reason Modal -->
             <div class="modal fade" id="rejectionReasonModal" tabindex="-1" aria-labelledby="rejectionReasonModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -163,8 +182,9 @@
             </div>
         </main>
     </div>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
     <script src="../../assets/js/main.js"></script>
     <script src="../../assets/js/dashboard/dashboard.js"></script>
 </body>

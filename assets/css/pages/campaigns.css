@@ -370,3 +370,21 @@
     opacity: 0.5;
 }
 
+.campaign-organizer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.organizer-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.organizer-name {
+  font-weight: 600;
+  color: var(--color-dark);
+}

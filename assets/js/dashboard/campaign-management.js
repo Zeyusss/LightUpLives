@@ -390,6 +390,9 @@ document.addEventListener('DOMContentLoaded', async function () {
         updates: [],
         rejectionReason: '',
         createdAt: new Date().toISOString(),
+        donors:[],
+        fundingStatus:[],
+        creatorName:[]
       };
 
       try {
@@ -414,7 +417,10 @@ document.addEventListener('DOMContentLoaded', async function () {
       }
     }
   });
-
+document.getElementById('logoutBtn').addEventListener('click', function () {
+  localStorage.removeItem('user'); 
+  window.location.href = '../../pages/auth/login.html'; 
+});
   filterAllBtn.classList.add('active');
   await loadCampaigns('all');
 });

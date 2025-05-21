@@ -1,329 +1,462 @@
-        .btn-primary-custom {
-            background-color: var(--color-secondary);
-            border: none;
-            color: var(--color-white);
-            padding: var(--space-sm) var(--space-md);
-            border-radius: var(--radius-md);
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
+/* CSS Variables */
+:root {
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-xxl: 48px;
+  --space-xxxl: 64px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xxl: 2rem;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
 
-        .btn-primary-custom:hover {
-            background-color: var(--color-primary);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-sm);
-            color: var(--color-white);
-        }
+/* General Section Styling */
+.section-padding {
+  padding: var(--space-xxl) 0;
+}
 
-        .btn-accent-custom {
-            background-color: var(--color-accent);
-            border: none;
-            color: var(--color-white);
-            padding: var(--space-sm) var(--space-md);
-            border-radius: var(--radius-md);
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
+.section-title {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
 
-        .btn-accent-custom:hover {
-            background-color: var(--color-hover);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-sm);
-            color: var(--color-white);
-        }
+.section-title h2 {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: #333;
+  margin-bottom: var(--space-xs);
+}
 
-        .hero {
-            background-image: linear-gradient(rgba(33, 52, 48, 0.7), rgba(33, 52, 48, 0.7)), url('/api/placeholder/1600/800');
-            background-size: cover;
-            background-position: center;
-            color: var(--color-white);
-            padding: var(--section-xxxl) 0;
-            text-align: center;
-        }
+.section-title p {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
 
-        .hero h1 {
-            font-size: var(--font-size-xxl);
-            font-weight: 700;
-            color: var(--color-white);
-            margin-bottom: var(--space-md);
-        }
+/* Hero Section */
+.hero {
+  background-image: linear-gradient(rgba(33, 52, 48, 0.7), rgba(33, 52, 48, 0.7)), url('/api/placeholder/1600/800');
+  background-size: cover;
+  background-position: center;
+  color: var(--color-white);
+  padding: var(--space-xxxl) 0;
+  text-align: center;
+}
 
-        .hero p {
-            font-size: var(--font-size-lg);
-            max-width: 700px;
-            margin: 0 auto var(--space-lg);
-        }
+.hero h1 {
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
 
-        .campaign-card {
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            margin-bottom: var(--space-lg);
-            background-color: var(--color-white);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
+.hero p {
+  font-size: var(--font-size-lg);
+  max-width: 700px;
+  margin: 0 auto var(--space-lg);
+}
 
-        .campaign-card:hover {
-            transform: translateY(-5px);
-        }
+/* Campaign Card */
+.campaign-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  margin-bottom: var(--space-lg);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
 
-        .campaign-img {
-            height: 250px;
-            object-fit: cover;
-            width: 100%;
-        }
+.campaign-card:hover {
+  transform: translateY(-5px);
+}
 
-        .campaign-content {
-            padding: var(--space-md);
-            flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-            
-        }
+.campaign-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  filter: brightness(100%);
+  image-rendering: -webkit-optimize-contrast;
+}
 
-        .campaign-title {
-            font-size: var(--font-size-lg);
-            margin-bottom: var(--space-xs);
-            color: var(--color-primary);
-        }
+.campaign-content {
+  padding: var(--space-md);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-        .campaign-organizer {
-            color: var(--color-text);
-            font-size: var(--font-size-sm);
-            margin-bottom: var(--space-sm);
-            display: flex;
-            align-items: center;
-        }
+.campaign-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
 
-        .organizer-img {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            margin-right: var(--space-xs);
-        }
+.campaign-organizer {
+  display: flex;
+  align-items: center;
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-sm);
+}
 
+.organizer-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: var(--space-xs);
+}
+
+.card-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--color-accent);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+/* Progress Bar */
 .progress {
   height: 20px;
+  background: #e0e0e0;
   border-radius: 100px;
-  margin: var(--space-sm) 0;
-  background-color: #e0e0e0; 
   position: relative;
   overflow: hidden;
+  margin: var(--space-sm) 0 var(--space-md) 0;
 }
 
 .progress-bar {
-background-color: var(--color-secondary);
-height: 100%;
-border-radius: 100px;
-position: relative; 
-display: flex; 
-justify-content: space-between; 
-align-items: center;
-padding: 0 10px;
-transition: width 0.3s ease;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent));
+  height: 100%;
+  border-radius: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  transition: width 1s ease-in-out;
+  position: relative;
 }
+
 .progress-text {
-color: var(--color-white);
-font-weight: 500;
-font-size: var(--font-size-sm);
-position: absolute; 
-left: 10px; 
-white-space: nowrap; 
+  color: var(--color-white);
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  position: absolute;
+  left: 10px;
+  white-space: nowrap;
 }
 
 .progress-percentage {
-color: var(--color-white);
-font-weight: 500;
-font-size: var(--font-size-sm);
-position: absolute; 
-right: 10px; 
-white-space: nowrap; 
+  color: var(--color-white);
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  position: absolute;
+  right: 10px;
+  white-space: nowrap;
 }
 
-        .campaign-stats {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: var(--space-sm);
-        }
-
-        .stats-item {
-            text-align: center;
-        }
-
-        .stats-value {
-            font-weight: 600;
-            color: var(--color-primary);
-        }
-
-        .stats-label {
-            font-size: var(--font-size-sm);
-            color: var(--color-text);
-        }
-
-        .donation-form {
-            background-color: var(--color-white);
-            border-radius: var(--radius-lg);
-            padding: var(--space-lg);
-            box-shadow: var(--shadow-md);
-        }
-
-        .form-label {
-            color: var(--color-primary);
-            font-weight: 500;
-        }
-
-        .form-control {
-            border: 1px solid #e0e0e0;
-            padding: var(--space-sm);
-            border-radius: var(--radius-md);
-        }
-
-        .form-control:focus {
-            border-color: var(--color-secondary);
-            box-shadow: 0 0 0 0.2rem rgba(0, 147, 104, 0.25);
-        }
-
-        .donation-amount {
-            display: flex;
-            gap: var(--space-xs);
-            flex-wrap: wrap;
-            margin-bottom: var(--space-md);
-        }
-
-        .amount-option {
-            border: 2px solid #e0e0e0;
-            border-radius: var(--radius-md);
-            padding: var(--space-xs) var(--space-md);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .amount-option:hover {
-            border-color: var(--color-secondary);
-        }
-
-        .amount-option.active {
-            border-color: var(--color-secondary);
-            background-color: rgba(0, 147, 104, 0.1);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--color-secondary);
-            margin-bottom: var(--space-sm);
-        }
-
-        .feature-card {
-            text-align: center;
-            padding: var(--space-md);
-            border-radius: var(--radius-md);
-            background-color: var(--color-white);
-            box-shadow: var(--shadow-sm);
-            height: 100%;
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .testimonial-card {
-            background-color: var(--color-white);
-            border-radius: var(--radius-lg);
-            padding: var(--space-lg);
-            box-shadow: var(--shadow-sm);
-            height: 100%;
-        }
-
-        .testimonial-img {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            margin-bottom: var(--space-sm);
-            object-fit: cover;
-        }
-
-        .testimonial-quote {
-            font-style: italic;
-            margin-bottom: var(--space-md);
-        }
-
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--color-primary);
-        }
-
-        .testimonial-role {
-            font-size: var(--font-size-sm);
-            color: var(--color-text);
-        }
-        .social-icon {
-            color: var(--color-white);
-            font-size: 1.5rem;
-            margin-right: var(--space-sm);
-            transition: color 0.3s ease;
-        }
-
-.center{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+/* Campaign Stats */
+.campaign-stats {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-sm);
 }
-        .social-icon:hover {
-            color: var(--color-accent);
-        }
-        
-        .section-padding {
-            padding: var(--space-xxl) 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: var(--space-xl);
-        }
-        
-        .section-title h2 {
-            font-size: var(--font-size-xl);
-            margin-bottom: var(--space-xs);
-        }
-        
-        .section-title p {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .card-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: var(--color-accent);
-            color: var(--color-white);
-            padding: 5px 10px;
-            border-radius: var(--radius-sm);
-            font-weight: 500;
-            font-size: var(--font-size-sm);
-        }
-        
-        .counter-section {
-            background-color: var(--color-secondary);
-            padding: var(--space-xl) 0;
-            color: var(--color-white);
-        }
-        
-        .counter-value {
-            font-size: var(--font-size-xl);
-            font-weight: 700;
-            margin-bottom: var(--space-xs);
-        }
-        
-        .counter-title {
-            font-size: var(--font-size-base);
-        }
-        
+
+.stats-item {
+  text-align: center;
+  flex: 1;
+  min-width: 80px;
+  margin: 10px 0;
+}
+
+.stats-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.stats-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+}
+
+/* Donors Section */
+.donors-section {
+  margin-top: 30px;
+}
+
+.donors-section h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.donors-list {
+  max-height: 300px; /* Limit height to prevent overflow */
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.donors-list.expanded {
+  max-height: none;
+}
+
+.donor-card {
+  background: #fff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.donor-info h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.donor-info p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+.donor-actions {
+  display: none; /* Hidden by default, shown for admins */
+}
+
+.delete-donor-btn {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.delete-donor-btn:hover {
+  background: #c82333;
+}
+
+.show-more-donors {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.show-more-donors:hover {
+  background: #0056b3;
+}
+
+/* Donation Form */
+.donation-form {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-lg);
+}
+
+.form-label {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.form-control {
+  border: 1px solid #e0e0e0;
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+}
+
+.form-control:focus {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 0.2rem rgba(0, 147, 104, 0.25);
+}
+
+.donation-amount {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.amount-option {
+  border: 2px solid #e0e0e0;
+  border-radius: var(--radius-md);
+  padding: var(--space-xs) var(--space-md);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.amount-option:hover {
+  border-color: var(--color-secondary);
+}
+
+.amount-option.active {
+  border-color: var(--color-secondary);
+  background: rgba(0, 147, 104, 0.1);
+}
+
+/* Buttons */
+.btn-primary-custom {
+  background: var(--color-primary);
+  border: none;
+  color: var(--color-white);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-white);
+}
+
+.btn-accent-custom {
+  background: var(--color-accent);
+  border: none;
+  color: var(--color-white);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-accent-custom:hover {
+  background: var(--color-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-white);
+}
+
+/* Feature Card */
+.feature-card {
+  text-align: center;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+/* Testimonial Card */
+.testimonial-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+}
+
+.testimonial-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: var(--space-sm);
+  object-fit: cover;
+}
+
+.testimonial-quote {
+  font-style: italic;
+  margin-bottom: var(--space-md);
+}
+
+.testimonial-author {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.testimonial-role {
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+}
+
+/* Social Icons */
+.social-icon {
+  color: var(--color-white);
+  font-size: 1.5rem;
+  margin-right: var(--space-sm);
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: var(--color-accent);
+}
+
+/* Center Utility */
+.center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Campaign Footer */
+.campaign-footer a {
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .campaign-img {
+    height: 200px;
+  }
+  .campaign-title {
+    font-size: var(--font-size-lg);
+  }
+  .stats-item {
+    min-width: 50%;
+  }
+  .hero h1 {
+    font-size: var(--font-size-xl);
+  }
+  .hero p {
+    font-size: var(--font-size-base);
+  }
+}

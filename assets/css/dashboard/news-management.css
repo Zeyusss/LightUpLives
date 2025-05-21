@@ -1,0 +1,48 @@
+/* Inherit from admin-panel.css */
+@import url('../admin-panel.css');
+
+/* Additional styles for news management */
+.section-content {
+    padding: var(--space-md);
+}
+
+.table-container {
+    margin-top: var(--space-md);
+}
+
+table th,
+table td {
+    vertical-align: middle;
+}
+
+.badge-viewed {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: var(--color-success);
+}
+
+.badge-not-viewed {
+    background-color: rgba(236, 163, 12, 0.1);
+    color: var(--color-accent);
+}
+
+.btn-action {
+    margin-right: var(--space-xs);
+}
+
+.modal-body form {
+    max-width: 100%;
+}
+
+.modal-body .form-control {
+    width: 100%;
+}
+
+#newsTable tr:hover {
+    background-color: rgba(0, 147, 104, 0.05);
+}
+
+#imagePreview,
+#editImagePreview {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}

@@ -37,16 +37,20 @@
                         <li class="nav-item">
                             <a href="./pledges.html" class="nav-link active"><i class="fas fa-hand-holding-usd"></i> Pledges</a>
                         </li>
+                        
                     </ul>
                 </div>
                 <div class="nav-section">
                     <h3 class="nav-section-title">System</h3>
                     <ul class="nav-list">
                         <li class="nav-item">
-                            <a href="./events.html" class="nav-link"><i class="fas fa-cog"></i> Events</a>
+                            <a href="./events-management.html" class="nav-link"><i class="fas fa-calendar-alt"></i> Events</a>
                         </li>
                         <li class="nav-item">
                             <a href="./reports.html" class="nav-link"><i class="fas fa-file-alt"></i> Reports</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./news-management.html" class="nav-link"><i class="fas fa-newspaper"></i> News</a>
                         </li>
                     </ul>
                 </div>
@@ -56,6 +60,7 @@
                 <div>
                     <div class="user-name">Admin User</div>
                     <div class="user-role">Administrator</div>
+                    <button id="logoutBtn" class="btn btn-outline-danger">Logout</button>
                 </div>
             </div>
         </aside>
@@ -78,15 +83,6 @@
                 <div class="section-content">
                     <div class="filters">
                         <div class="filter-group">
-                            <span class="filter-label">Status:</span>
-                            <select class="filter-select" id="pledge-status-filter" aria-label="Filter by status">
-                                <option value="all">All</option>
-                                <option value="pending">Pending</option>
-                                <option value="confirmed">Confirmed</option>
-                                <option value="refunded">Refunded</option>
-                            </select>
-                        </div>
-                        <div class="filter-group">
                             <span class="filter-label">Campaign:</span>
                             <select class="filter-select" id="campaign-filter" aria-label="Filter by campaign">
                                 <option value="all">All Campaigns</option>
@@ -107,7 +103,6 @@
                                     <th>Campaign</th>
                                     <th>Pledger</th>
                                     <th>Amount</th>
-                                    <th>Status</th>
                                     <th>Date</th>
                                     <th>Actions</th>
                                 </tr>
@@ -124,22 +119,50 @@
                     <div class="pagination-item" id="next-page" aria-label="Next page">»</div>
                 </div>
             </div>
-            <div class="modal fade" id="refundReasonModal" tabindex="-1" aria-labelledby="refundReasonModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
+            <div class="modal fade" id="pledgeDetailsModal" tabindex="-1" aria-labelledby="pledgeDetailsModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="refundReasonModalLabel">Refund Pledge</h5>
+                            <h5 class="modal-title" id="pledgeDetailsModalLabel">Pledge Details</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="mb-3">
-                                <label for="refundReason" class="form-label">Refund Reason (optional):</label>
-                                <textarea class="form-control" id="refundReason" rows="4" placeholder="Enter reason for refund"></textarea>
+                                <strong>Pledge ID:</strong> <span id="pledge-id">N/A</span>
+                            </div>
+                            <div class="mb-3">
+                                <strong>Campaign:</strong> <span id="pledge-campaign">Unknown</span>
+                            </div>
+                            <div class="mb-3">
+                                <strong>Campaign Category:</strong> <span id="pledge-campaign-category">Unknown</span>
+                            </div>
+                            <div class="mb-3">
+                                <strong>Campaign Goal:</strong> <span id="pledge-campaign-goal">Unknown</span>
+                            </div>
+                            <div class="mb-3">
+                                <strong>Campaign Creator:</strong> <span id="pledge-campaign-creator">Unknown</span>
+                            </div>
+                            <div class="mb-3">
+                                <strong>Pledger Name:</strong> <span id="pledge-pledger">Unknown</span>
+                            </div>
+                            <div class="mb-3">
+                                <strong>Pledger Email:</strong> <span id="pledge-email">Unknown</span>
+                            </div>
+                            <div class="mb-3">
+                                <strong>Amount:</strong> <span id="pledge-amount">$0</span>
+                            </div>
+                            <div class="mb-3">
+                                <strong>Date:</strong> <span id="pledge-date">Unknown</span>
+                            </div>
+                            <div class="mb-3">
+                                <strong>Refund Reason:</strong> <span id="pledge-refund-reason">N/A</span>
+                            </div>
+                            <div class="mb-3">
+                                <strong>Transaction Details:</strong> <span id="pledge-transaction">N/A</span>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-danger" id="confirmRefund">Refund</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>

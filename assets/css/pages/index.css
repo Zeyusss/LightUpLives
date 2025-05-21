@@ -9,7 +9,7 @@
 
 h5,
 .sec2 .left ul li i {
-    color: var(--color-primary) !important;
+    color: var(--color-secondary) !important;
 }
 
 .content1 h3 {
@@ -58,9 +58,8 @@ h5,
     align-items: center;
 }
 
-
 .sec3 button {
-    border-radius: 3px;
+    border-radius: var(--radius-sm);
     padding: 12px 40px;
     border: none;
     background-color: var(--color-secondary);
@@ -70,8 +69,6 @@ h5,
     text-decoration: none;
     color: var(--color-white);
 }
-
-
 
 .img {
     min-height: 100vh;
@@ -104,15 +101,17 @@ h5,
 }
 
 .overlay-content .left h1 {
-    font-size: 54px;
+    font-size: var(--font-size-xxl);
     line-height: 1.2em;
 }
+
 .overlay-content .right {
     background-color: var(--color-white);
     z-index: 1;
-    border-radius: 10px;
-padding: 50px;
+    border-radius: var(--radius-md);
+    padding: 50px;
 }
+
 .overlay-content .right span {
     display: flex;
     flex-wrap: wrap;
@@ -125,9 +124,11 @@ padding: 50px;
     box-sizing: border-box;
     margin: 0; 
 }
+
 .overlay-content .right h3 {
     padding: 30px 0 10px 0;
 }
+
 .overlay-content .right .buttons {
     display: flex;
     justify-content: flex-start;
@@ -137,17 +138,19 @@ padding: 50px;
 }
 
 .overlay-content .right .buttons button {
-    border: 1px solid var(--color-accent);
+    border: 2px solid var(--color-accent);
     padding: 15px 90px;
-    border-radius: 5px;
-    transition: all .5s;
+    border-radius: var(--radius-sm);
+    transition: all 0.5s;
 }
 
-.overlay-content .right .buttons button:hover{
+.overlay-content .right .buttons button:hover {
     background-color: var(--color-accent);
+    color: var(--color-white) !important;
 }
+
 .sec1 .btn {
-    background-color: var(--color-primary) !important;
+    background-color: var(--color-secondary) !important;
     color: var(--color-white) !important;
     margin-bottom: var(--space-sm);
 }
@@ -167,11 +170,11 @@ a {
 
 .overlay-footer {
     text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: var(--shadow-md);
     position: absolute;
     bottom: -150px;
-    background-color: var(--bg-color);
-    border-radius: 10px;
+    background-color: var(--color-white);
+    border-radius: var(--radius-md);
     margin-bottom: var(--space-sm);
     margin: auto;
     width: 95%;
@@ -181,15 +184,15 @@ a {
 
 .overlay-footer .div4 {
     height: 200px;
-    background-color: var(--color-primary);
-    color: var(--bg-color);
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border-bottom-right-radius: var(--radius-md);
+    border-top-right-radius: var(--radius-md);
 }
 
 .overlay-footer h3 {
-    color: var(--color-primary);
-    font-size: 54px;
+    color: var(--color-secondary);
+    font-size: var(--font-size-xl);
 }
 
 .underline {
@@ -200,18 +203,20 @@ a {
     margin: auto;
 }
 
-
 h6 {
-    color: var(--color-primary) !important;
+    color: var(--color-secondary) !important;
 }
+
 .sec1 h1 {
     color: var(--color-white) !important;
     line-height: 3rem;
     z-index: 1;
 }
+
 .sec1 .p1 {
-    padding-top:30px ;
+    padding-top: 30px;
 }
+
 .sec1 .p1,
 .sec3 button a,
 .sec3 button i {
@@ -220,7 +225,7 @@ h6 {
 
 .button1 {
     background-color: var(--color-secondary) !important;
-    border-radius: 5px;
+    border-radius: var(--radius-sm);
 }
 
 .button1 a,
@@ -230,9 +235,9 @@ h6 {
 }
 
 .button2 {
-    border-radius: 5px;
+    border-radius: var(--radius-sm);
     background-color: transparent;
-    border: 1px solid var(--color-white) !important;
+    border: 2px solid var(--color-white) !important;
     color: white;
     transition: all 0.5s;
 }
@@ -249,7 +254,7 @@ h6 {
 .sec5 button {
     position: relative;
     padding: 18px 35px;
-    border-radius: 5px;
+    border-radius: var(--radius-sm);
     background-color: var(--color-accent);
     border: 2px solid var(--color-accent);
     transition: all 0.5s;
@@ -260,40 +265,26 @@ h6 {
 .sec3 button:hover,
 .sec4 button:hover,
 .sec5 button:hover,
-.FAQ-sec4 .btn1:hover,
 .button1:hover {
     background-color: var(--color-hover);
-
-}
-
-.sec2 button:hover::after,
-.sec3 button:hover::after,
-.sec4 button:hover::after,
-.sec5 button:hover::after,
-.FAQ-sec4 .btn1:hover::after,
-.button1:hover::after {
-    width: 100%;
-    height: 100%;
-    opacity: 0.3;
-    transition: .2s;
 }
 
 .button2:hover {
-
     background-color: white;
-    border: 1px solid var(--color-white) !important;
-color: black;
+    border: 2px solid var(--color-white) !important;
+    color: black;
 }
 
 .button2:hover a,
 .button2:hover i {
-    color: var(--color-black) !important;
-    transition: .2s;
+    color: var(--color-dark) !important;
+    transition: 0.2s;
 }
 
 .p2 {
     color: var(--color-text) !important;
 }
+
 .sec2 {
     padding-top: 200px;
     display: flex;
@@ -305,7 +296,8 @@ color: black;
 .sec2 .left {
     width: 45%;
 }
-.sec3,.sec4,.sec5,.sec6,.sec7,.sec8 {
+
+.sec3, .sec4, .sec5, .sec6, .sec7, .sec8 {
     padding-top: var(--section-xxxl);
 }
 
@@ -319,7 +311,7 @@ color: black;
     border: none;
     margin-top: var(--space-lg) !important;
     margin-bottom: var(--space-xxl) !important;
-    border-radius: 5px;
+    border-radius: var(--radius-sm);
 }
 
 .sec2 .left button a,
@@ -329,13 +321,14 @@ color: black;
     color: var(--color-white) !important;
     text-decoration: none;
 }
+
 .sec4 .underline2 {
     margin-bottom: var(--space-sm);
     margin-top: var(--space-sm);
 }
 
 .sec4 .h5 {
-    color: var(--color-black) !important;
+    color: var(--color-dark) !important;
 }
 
 .imgs-container {
@@ -344,14 +337,14 @@ color: black;
 }
 
 .sec2 .imgs-container .img1 {
-    border-radius: 10px;
+    border-radius: var(--radius-md);
 }
 
 .sec2 .imgs-container .img2 {
     position: absolute;
     bottom: -40px;
     right: 40px;
-    border-radius: 10px;
+    border-radius: var(--radius-md);
 }
 
 .sec2 .imgs-container .img4 {
@@ -380,7 +373,7 @@ ul {
 }
 
 .card {
-border-radius: var(--radius-lg);
+    border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-md);
     margin-bottom: var(--space-lg);
@@ -388,8 +381,9 @@ border-radius: var(--radius-lg);
     height: 100%; 
     display: flex;
     flex-direction: column;
-    background-color: var(--bg-color);
+    background-color: var(--color-white);
 }
+
 .overlay3 {
     position: relative;
     display: inline-block;
@@ -402,10 +396,11 @@ border-radius: var(--radius-lg);
     justify-content: space-between;
     align-items: center;
 }
+
 .overlay3 img {
-width: 100%;
+    width: 100%;
     height: 100%;
-object-fit: cover; 
+    object-fit: cover; 
     object-position: center; 
     transition: transform 0.5s ease;
 }
@@ -420,7 +415,7 @@ object-fit: cover;
 }
 
 .overlay3:hover::after {
-content: "";
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -428,29 +423,26 @@ content: "";
     height: 100%;
     background-color: rgba(33, 52, 48, 0.4);
     transition: 0.5s ease;
-    border-radius: 15px;
+    border-radius: var(--radius-md);
     cursor: pointer;
 }
 
-
 .card-body {
-flex: 1; 
+    flex: 1; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
     position: relative;
-
 }
 
 .card-body h5 {
-    background-color: var(--color-primary);
+    background-color: var(--color-secondary);
     color: var(--color-white);
     position: absolute;
     top: -20px;
     padding: 7px 12px;
-
-    border-radius: 5px;
+    border-radius: var(--radius-sm);
 }
 
 .sec3 .card-body h4 {
@@ -467,11 +459,11 @@ flex: 1;
 
 .card-body hr {
     margin: 10px 0;
-    border-color: var(--color-light);
+    border-color: #e0e0e0;
 }
 
 .card-body span {
-    color: var(--color-primary) !important;
+    color: var(--color-secondary) !important;
     font-size: var(--font-size-sm);
     display: inline-block;
     margin-right: 10px;
@@ -481,14 +473,15 @@ flex: 1;
     color: var(--color-text) !important;
     margin-bottom: 15px;
     flex-grow: 1; 
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-base);
 }
+
 .card-body h4 a:hover {
-    color: var(--color-primary) !important;
+    color: var(--color-secondary) !important;
 }
 
 .card:hover {
-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: var(--shadow-md);
     transform: translateY(-5px); 
 }
 
@@ -498,7 +491,6 @@ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 .sec5 .header .underline {
     margin-bottom: var(--space-md);
 }
-
 
 .sec5 img {
     width: 85%;
@@ -514,10 +506,12 @@ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 .sec5 .content ul {
     padding: 0;
 }
+
 .sec5 .content ul li {
     padding-top: 15px;
     margin-right: 15px;
 }
+
 .sec5 .content ul li i {
     color: var(--color-accent);
     margin: 0px 5px;
@@ -567,9 +561,8 @@ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
 .overlay .overlay-content .right2 button {
     padding: 18px 40px;
-    border-radius: 5px;
+    border-radius: var(--radius-sm);
     border: none;
-
 }
 
 .overlay .overlay-content .right2 .btn1 {
@@ -578,13 +571,7 @@ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
 .overlay .overlay-content .right2 .btn2 {
     background-color: transparent;
-    border: 1px solid var(--color-white);
-
-}
-
-.sec6 .right .btn2:hover {
-    background-color: var(--color-white) !important;
-
+    border: 2px solid var(--color-white);
 }
 
 .overlay .overlay-content .right2 .btn1 a,
@@ -592,7 +579,7 @@ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 .overlay .overlay-content .right2 .btn2 i,
 .overlay .overlay-content .right2 .btn2 a {
     text-decoration: none;
-    color: var(--bg-color) !important;
+    color: var(--color-white) !important;
 }
 
 .sec6 .left h1 {
@@ -610,7 +597,7 @@ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 .sec7-right .img8 {
     height: 100%;
     width: 90%;
-    border-radius: 20px;
+    border-radius: var(--radius-md);
     position: relative;
 }
 
@@ -624,7 +611,7 @@ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .sec7 .left {
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: var(--shadow-md);
     height: 50%;
     padding: 50px 30px 70px 30px;
     margin-top: var(--space-xl);
@@ -645,7 +632,6 @@ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     width: 60px;
     height: 2px;
     z-index: 10;
-
 }
 
 .sec7 .left .underline2 {
@@ -654,13 +640,12 @@ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .h6 {
-    color: var(--color-black) !important;
+    color: var(--color-dark) !important;
     margin-top: var(--space-sm) !important;
 }
 
 .sec7 .left .h6-2 {
-
-    color: var(--color-primary) !important;
+    color: var(--color-secondary) !important;
 }
 
 .slider-image {
@@ -671,29 +656,25 @@ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
 .carousel-item .content {
     width: 35%;
-
 }
 
 .underscore {
     width: 20px;
     height: 2px;
     background-color: var(--color-secondary);
-
 }
 
 .images-container img {
     margin-left: 100px;
-
-
 }
 
 .sec8 .header {
-margin-bottom: var(--space-xl) !important;
+    margin-bottom: var(--space-xl) !important;
     text-align: center;
 }
 
 .sec8 .underline2 {
-background-color: var(--color-accent);
+    background-color: var(--color-accent);
     width: 60px;
     height: 2px;
     margin: auto;
@@ -705,9 +686,11 @@ background-color: var(--color-accent);
     flex-wrap: wrap;
     justify-content: center; 
 }
+
 .sec8 .col-sm-12.col-md-6.col-lg-4 {
     display: flex; 
 }
+
 .images-container {
     padding: 50px 0px;
     background-image: url("../../images/bg-brands.png");
@@ -718,35 +701,34 @@ background-color: var(--color-accent);
 
 .sec8 {
     margin-bottom: var(--space-xxl) !important;
-padding-top: var(--section-xxxl);
+    padding-top: var(--section-xxxl);
 }
 
 .sec8 a {
     text-decoration: none;
-
 }
 
 .sec8 span {
-    color: var(--color-primary) !important;
+    color: var(--color-secondary) !important;
 }
 
 .sec8 img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-            flex-shrink: 0;
-            border-radius: 15px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
 }
 
 .sec8 .img3 {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-            flex-shrink: 0;
-            object-position: center;
-            border-radius: 15px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    flex-shrink: 0;
+    object-position: center;
+    border-radius: var(--radius-md);
 }
 
 .sec8 .overlay3 {
@@ -757,23 +739,26 @@ padding-top: var(--section-xxxl);
 .sec8 .parent {
     position: relative;
 }
-.sec8 .card-footer{
+
+.sec8 .card-footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
+
 .sec8 .div5 {
-position: absolute;
+    position: absolute;
     right: 20px;
     top: 20px;
-    background-color: var(--color-primary);
+    background-color: var(--color-secondary);
     color: var(--color-white);
     padding: 8px 16px;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     font-size: var(--font-size-sm);
     z-index: 1; 
 }
+
 .video {
     position: relative;
 }
@@ -793,7 +778,7 @@ position: absolute;
 .video img {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: var(--radius-md);
 }
 
 .sec1 .right {
@@ -804,4 +789,373 @@ position: absolute;
     position: absolute;
     right: 80px;
     top: 230px;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Small screens (Mobile: <768px) */
+@media (max-width: 767.98px) {
+    /* Navbar adjustments */
+    .header-wrapper {
+        position: fixed;
+        background-color: var(--color-primary);
+    }
+
+    .topbar {
+        font-size: var(--font-size-sm);
+        padding: 8px 0;
+    }
+
+    .navbar {
+        padding: 10px 0;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: var(--font-size-base);
+        padding: 10px 15px;
+    }
+
+    .btn-outline-white {
+        font-size: var(--font-size-sm);
+        padding: 8px 20px;
+    }
+
+    /* Section 1 */
+    .sec1 {
+        padding-top: 120px;
+    }
+
+    .sec1 .img {
+        min-height: 80vh;
+    }
+
+    .overlay-content {
+        flex-direction: column;
+        align-items: center;
+        padding: var(--space-md);
+    }
+
+    .overlay-content .left {
+        width: 100%;
+        margin-bottom: var(--space-md);
+        text-align: center;
+    }
+
+    .overlay-content .right {
+        display: none; /* Hide the right section on mobile */
+    }
+
+    .overlay-content .left h1 {
+        font-size: var(--font-size-xl);
+        line-height: 1.3em;
+    }
+
+    .overlay-footer {
+        bottom: -80px;
+        width: 90%;
+        padding: var(--space-sm);
+    }
+
+    .overlay-footer .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .overlay-footer .content1 {
+        margin-bottom: var(--space-md);
+        text-align: center;
+    }
+
+    .overlay-footer .div4 {
+        border-radius: 0 0 var(--radius-md) var(--radius-md);
+        padding: var(--space-sm);
+    }
+
+    .overlay-footer h3 {
+        font-size: var(--font-size-lg);
+    }
+
+    /* Section 2 */
+    .sec2 {
+        padding-top: 100px;
+    }
+
+    .sec2 .left,
+    .sec2 .imgs-container {
+        width: 100%;
+    }
+
+    .sec2 .imgs-container .img2 {
+        right: 20px;
+        bottom: -20px;
+        width: 50%;
+    }
+
+    .sec2 .imgs-container .img4 {
+        left: -15px;
+        top: 30px;
+        width: 60px;
+        height: 60px;
+    }
+
+    /* Section 3 */
+    .sec3 .card-body h4 {
+        font-size: var(--font-size-base);
+    }
+
+    .sec3 .card-body .p2 {
+        font-size: var(--font-size-sm);
+    }
+
+    .sec3 button {
+        padding: 10px 30px;
+    }
+
+    /* Section 4 */
+    .sec4 .inner {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sec4 .inner > div {
+        width: 100%;
+        margin-bottom: var(--space-md);
+    }
+
+    .video img {
+        height: auto;
+    }
+
+    /* Section 5 */
+    .sec5 .content {
+        margin-bottom: var(--space-md);
+    }
+
+    .sec5 img {
+        width: 100%;
+        height: auto;
+    }
+
+    .sec5 .content ul li i {
+        font-size: var(--font-size-base);
+    }
+
+    /* Section 6 */
+    .sec6-background {
+        height: 60vh;
+    }
+
+    .sec6 .overlay-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sec6 .overlay-content .left,
+    .sec6 .overlay-content .right2 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .sec6 .overlay-content .left h1 {
+        font-size: var(--font-size-lg);
+    }
+
+    .sec6 .overlay-content .right2 {
+        height: auto;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .img5, .img6 {
+        display: none;
+    }
+
+    /* Section 7 */
+    .sec7 .left,
+    .sec7-right {
+        width: 100%;
+    }
+
+    .sec7 .left {
+        padding: var(--space-md);
+        margin-top: 0;
+    }
+
+    .sec7-right .img8 {
+        width: 100%;
+        margin-top: var(--space-md);
+    }
+
+    .sec7-right .img7 {
+        width: 80px;
+        height: 80px;
+        top: 50px;
+        right: 10px;
+    }
+
+    .carousel-item .content {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .slider-image {
+        margin-right: 0;
+        margin-bottom: var(--space-sm);
+    }
+
+    /* Section 8 */
+    .sec8 .card-body h4 {
+        font-size: var(--font-size-base);
+    }
+
+    .sec8 .card-body .p2 {
+        font-size: var(--font-size-sm);
+    }
+
+    /* Section 9 */
+    .images-container img {
+        margin-left: 20px;
+        width: 80px;
+    }
+
+    .final-slider {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    /* Progress Bar */
+    .progress {
+        height: 16px;
+    }
+
+    .progress-text,
+    .progress-percentage {
+        font-size: 12px;
+    }
+}
+
+/* Medium screens (Tablet: 768px–1200px) */
+@media (min-width: 768px) and (max-width: 1200px) {
+    /* Navbar adjustments */
+    .topbar {
+        font-size: var(--font-size-sm);
+    }
+
+    .navbar-nav .nav-link {
+        font-size: var(--font-size-sm);
+    }
+
+    .btn-outline-white {
+        font-size: var(--font-size-sm);
+        padding: 10px 25px;
+    }
+
+    /* Section 1 */
+    .sec1 {
+        padding-top: 100px;
+    }
+
+    .overlay-content .left h1 {
+        font-size: var(--font-size-xl);
+    }
+
+    .overlay-content .right {
+        padding: var(--space-sm);
+    }
+
+    .overlay-content .right h3 {
+        font-size: var(--font-size-lg);
+    }
+
+    .overlay-content .right .buttons button {
+        padding: 12px 60px;
+    }
+
+    .overlay-footer {
+        width: 90%;
+        bottom: -100px;
+    }
+
+    .overlay-footer h3 {
+        font-size: var(--font-size-lg);
+    }
+
+    /* Section 2 */
+    .sec2 .left,
+    .sec2 .imgs-container {
+        width: 100%;
+    }
+
+    .sec2 .imgs-container .img2 {
+        width: 40%;
+    }
+
+    /* Section 3 */
+    .sec3 .card-body h4 {
+        font-size: var(--font-size-base);
+    }
+
+    /* Section 4 */
+    .sec4 .inner {
+        flex-wrap: wrap;
+    }
+
+    .sec4 .inner > div {
+        width: 45%;
+        margin-bottom: var(--space-md);
+    }
+
+    /* Section 5 */
+    .sec5 .content {
+        margin-bottom: var(--space-md);
+    }
+
+    /* Section 6 */
+    .sec6 .overlay-content .left h1 {
+        font-size: var(--font-size-xl);
+    }
+
+    .sec6 .overlay-content .right2 {
+        width: 50%;
+    }
+
+    /* Section 7 */
+    .sec7 .left {
+        padding: var(--space-md);
+    }
+
+    .carousel-item .content {
+        width: 50%;
+    }
+
+    /* Progress Bar */
+    .progress {
+        height: 18px;
+    }
+}
+
+/* Large screens (Desktop: >1200px) */
+@media (min-width: 1200px) {
+    /* Ensure the original layout works as intended */
+    .overlay-content .left,
+    .overlay-content .right {
+        width: 45%;
+    }
+
+    .sec2 .left,
+    .sec2 .imgs-container {
+        width: 50%;
+    }
+
+    .sec4 .inner {
+        flex-wrap: nowrap;
+    }
+
+    .sec6 .overlay-content .right2 {
+        width: 40%;
+    }
 }

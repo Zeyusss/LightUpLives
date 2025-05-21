@@ -457,6 +457,10 @@ document.addEventListener('DOMContentLoaded', async function () {
   document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(element => {
     new bootstrap.Tooltip(element);
   });
+document.getElementById('logoutBtn').addEventListener('click', function () {
+  localStorage.removeItem('user'); 
+  window.location.href = '../../pages/auth/login.html'; 
+});
 
   filterAllBtn.classList.add('active');
   await loadUsers('all');

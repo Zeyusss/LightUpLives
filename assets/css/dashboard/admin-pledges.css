@@ -501,3 +501,42 @@ td {
     pointer-events: none;
     opacity: 0.5;
 }
+
+/* Modal Styling */
+.modal-content {
+  border-radius: 8px;
+}
+
+.modal-header {
+  background: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-body .mb-3 {
+  display: flex;
+  align-items: center;
+}
+
+.modal-body strong {
+  width: 180px;
+  font-weight: 500;
+  color: #333;
+}
+
+.modal-body span {
+  flex: 1;
+  color: #666;
+}
+
+.modal-footer {
+  border-top: 1px solid #dee2e6;
+}

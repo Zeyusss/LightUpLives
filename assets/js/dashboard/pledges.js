@@ -8,25 +8,20 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   // DOM Elements
   const searchPledgesInput = document.getElementById('search-pledges');
-  const pledgeStatusFilter = document.getElementById('pledge-status-filter');
   const campaignFilter = document.getElementById('campaign-filter');
   const dateFromInput = document.getElementById('date-from');
   const dateToInput = document.getElementById('date-to');
   const exportDataBtn = document.getElementById('export-data');
   const pledgesTable = document.getElementById('pledgesTable');
   const totalPledgesSpan = document.getElementById('total-pledges');
-  const refundReasonModal = document.getElementById('refundReasonModal');
-  const confirmRefundBtn = document.getElementById('confirmRefund');
   const prevPageBtn = document.getElementById('prev-page');
   const nextPageBtn = document.getElementById('next-page');
   const page1Btn = document.getElementById('page-1');
   const page2Btn = document.getElementById('page-2');
   const page3Btn = document.getElementById('page-3');
-  let currentPledgeId = null;
   let currentPage = 1;
   const itemsPerPage = 10;
 
-  // load campaigns for filter
   async function loadCampaigns() {
     try {
       const res = await fetch('http://localhost:3000/campaigns');
@@ -40,16 +35,14 @@ document.addEventListener('DOMContentLoaded', async function () {
         campaignFilter.appendChild(option);
       });
     } catch (error) {
-      console.error('Error loading campaigns:', error.message, error.stack);
+      console.error('Error loading campaigns:', error.message);
       campaignFilter.innerHTML = '<option value="all">All Campaigns</option>';
     }
   }
 
-  // load pledges with filters and pagination
-  async function loadPledges(page = 1, status = 'all', campaignId = 'all', dateFrom = '', dateTo = '', searchQuery = '') {
+  async function loadPledges(page = 1, campaignId = 'all', dateFrom = '', dateTo = '', searchQuery = '') {
     try {
       let url = `http://localhost:3000/pledges?_page=${page}&_limit=${itemsPerPage}`;
-      if (status !== 'all') url += `&status=${status}`;
       if (campaignId !== 'all') url += `&campaignId=${campaignId}`;
       if (dateFrom) url += `&createdAt_gte=${dateFrom}`;
       if (dateTo) url += `&createdAt_lte=${dateTo}`;
@@ -57,7 +50,6 @@ document.addEventListener('DOMContentLoaded', async function () {
       if (!res.ok) throw new Error(`Failed to fetch pledges: ${res.status} ${res.statusText}`);
       const pledges = await res.json();
 
-      // search filter
       let filteredPledges = pledges;
       if (searchQuery) {
         searchQuery = searchQuery.toLowerCase();
@@ -72,13 +64,12 @@ document.addEventListener('DOMContentLoaded', async function () {
       totalPledgesSpan.textContent = filteredPledges.length;
 
       if (filteredPledges.length === 0) {
-        pledgesTable.innerHTML = `<tr><td colspan="7" class="text-muted">No pledges found.</td></tr>`;
+        pledgesTable.innerHTML = `<tr><td colspan="6" class="text-muted">No pledges found.</td></tr>`;
         updatePagination(page);
         return;
       }
 
       for (const p of filteredPledges) {
-        // fetch campaign and pledger details
         let campaignTitle = 'Unknown';
         let pledgerName = 'Unknown';
         try {
@@ -88,7 +79,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             campaignTitle = campaign.title || 'Untitled';
           }
         } catch (error) {
-          console.warn(`Error fetching campaign ${p.campaignId}:`, error);
+          console.warn(`Error fetching campaign ${p.campaignId}:`, error.message);
         }
         try {
           const userRes = await fetch(`http://localhost:3000/users/${p.userId}`);
@@ -97,7 +88,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             pledgerName = user.name || 'Unknown';
           }
         } catch (error) {
-          console.warn(`Error fetching user ${p.userId}:`, error);
+          console.warn(`Error fetching user ${p.userId}:`, error.message);
         }
 
         const pledgeDate = p.createdAt ? new Date(p.createdAt).toLocaleDateString() : 'Unknown';
@@ -107,91 +98,97 @@ document.addEventListener('DOMContentLoaded', async function () {
           <td>${campaignTitle}</td>
           <td>${pledgerName}</td>
           <td>$${p.amount ? p.amount.toLocaleString() : '0'}</td>
-          <td><span class="badge badge-${p.status === 'pending' ? 'pending' : p.status === 'confirmed' ? 'confirmed' : 'refunded'}">${p.status ? p.status.charAt(0).toUpperCase() + p.status.slice(1) : 'Unknown'}</span></td>
           <td>${pledgeDate}</td>
           <td>
             <div class="actions">
               <button class="btn btn-outline btn-sm view-pledge" data-id="${p.id}" aria-label="View pledge">View</button>
-              ${p.status === 'pending' ? `
-                <button class="btn btn-primary btn-sm confirm-pledge" data-id="${p.id}" aria-label="Confirm pledge">Confirm</button>
-                <button class="btn btn-outline btn-sm refund-pledge" data-id="${p.id}" aria-label="Refund pledge">Refund</button>
-              ` : p.status === 'confirmed' ? `
-                <button class="btn btn-outline btn-sm refund-pledge" data-id="${p.id}" aria-label="Refund pledge">Refund</button>
-              ` : ''}
             </div>
           </td>`;
         pledgesTable.appendChild(row);
       }
-      document.querySelectorAll('.view-pledge').forEach(button => {
-        button.addEventListener('click', (e) => {
-          const pledgeId = e.target.dataset.id;
-          alert(`View pledge #${pledgeId} (Placeholder: Add detailed view logic)`);
-        });
-      });
 
-      document.querySelectorAll('.confirm-pledge').forEach(button => {
+      document.querySelectorAll('.view-pledge').forEach(button => {
         button.addEventListener('click', async (e) => {
           const pledgeId = e.target.dataset.id;
-          if (confirm('Are you sure you want to confirm this pledge?')) {
-            await updatePledgeStatus(pledgeId, 'confirmed');
-          }
-        });
-      });
-
-      document.querySelectorAll('.refund-pledge').forEach(button => {
-        button.addEventListener('click', (e) => {
-          currentPledgeId = e.target.dataset.id;
-          console.log('Refund button clicked, pledgeId:', currentPledgeId); // Debug
-          if (!currentPledgeId) {
-            console.error('No pledge ID set for refund');
-            alert('Error: No pledge selected for refund.');
-            return;
-          }
           try {
-            $(refundReasonModal).modal('show');
+           
+            const pledgeRes = await fetch(`http://localhost:3000/pledges/${pledgeId}`);
+            if (!pledgeRes.ok) throw new Error(`Failed to fetch pledge: ${pledgeRes.status} ${pledgeRes.statusText}`);
+            const pledge = await pledgeRes.json();
+
+            
+            let campaignTitle = 'Unknown';
+            let campaignCategory = 'Unknown';
+            let campaignGoal = 'Unknown';
+            let campaignCreator = 'Unknown';
+            try {
+              const campaignRes = await fetch(`http://localhost:3000/campaigns/${pledge.campaignId}`);
+              if (campaignRes.ok) {
+                const campaign = await campaignRes.json();
+                campaignTitle = campaign.title || 'Untitled';
+                campaignCategory = campaign.category || 'Unknown';
+                campaignGoal = campaign.goal ? `$${campaign.goal.toLocaleString()}` : 'Unknown';
+                campaignCreator = campaign.creatorName || 'Unknown';
+              }
+            } catch (error) {
+              console.warn(`Error fetching campaign ${pledge.campaignId}:`, error.message);
+            }
+
+            
+            let pledgerName = 'Unknown';
+            let pledgerEmail = 'Unknown';
+            try {
+              const userRes = await fetch(`http://localhost:3000/users/${pledge.userId}`);
+              if (userRes.ok) {
+                const user = await userRes.json();
+                pledgerName = user.name || 'Unknown';
+                pledgerEmail = user.email || 'Unknown';
+              }
+            } catch (error) {
+              console.warn(`Error fetching user ${pledge.userId}:`, error.message);
+            }
+
+            
+            let transactionDetails = 'N/A';
+            try {
+              const transactionRes = await fetch(`http://localhost:3000/transactions?pledgeId=${pledgeId}`);
+              if (transactionRes.ok) {
+                const transactions = await transactionRes.json();
+                if (transactions.length > 0) {
+                  const t = transactions[0]; 
+                  transactionDetails = `Type: ${t.type || 'Unknown'}, Date: ${t.date ? new Date(t.date).toLocaleDateString() : 'Unknown'}, Reason: ${t.reason || 'N/A'}`;
+                }
+              }
+            } catch (error) {
+              console.warn(`Error fetching transaction for pledge ${pledgeId}:`, error.message);
+            }
+
+            
+            document.getElementById('pledge-id').textContent = pledge.id || 'N/A';
+            document.getElementById('pledge-campaign').textContent = campaignTitle;
+            document.getElementById('pledge-pledger').textContent = pledgerName;
+            document.getElementById('pledge-email').textContent = pledgerEmail;
+            document.getElementById('pledge-amount').textContent = pledge.amount ? `$${pledge.amount.toLocaleString()}` : '$0';
+            document.getElementById('pledge-date').textContent = pledge.createdAt ? new Date(pledge.createdAt).toLocaleDateString() : 'Unknown';
+            document.getElementById('pledge-refund-reason').textContent = pledge.refundReason || 'N/A';
+            document.getElementById('pledge-campaign-category').textContent = campaignCategory;
+            document.getElementById('pledge-campaign-goal').textContent = campaignGoal;
+            document.getElementById('pledge-campaign-creator').textContent = campaignCreator;
+            document.getElementById('pledge-transaction').textContent = transactionDetails;
+
+            // Show modal
+            $('#pledgeDetailsModal').modal('show');
           } catch (error) {
-            console.error('Error showing refund modal:', error);
-            alert('Error: Failed to show refund modal. Please check if jQuery and Bootstrap are loaded.');
+            console.error('Error loading pledge details:', error.message);
+            alert(`Failed to load pledge details: ${error.message}`);
           }
         });
       });
 
       updatePagination(page);
     } catch (error) {
-      console.error('Error loading pledges:', error.message, error.stack);
-      pledgesTable.innerHTML = `<tr><td colspan="7" class="text-muted">Failed to load pledges: ${error.message}</td></tr>`;
-    }
-  }
-
-  // update pledge status
-  async function updatePledgeStatus(pledgeId, status, refundReason = '') {
-    try {
-      console.log('Updating pledge status:', { pledgeId, status, refundReason });
-      const res = await fetch(`http://localhost:3000/pledges/${pledgeId}`);
-      if (!res.ok) throw new Error(`Failed to fetch pledge: ${res.status} ${res.statusText}`);
-      const pledge = await res.json();
-
-      const updatedPledge = {
-        ...pledge,
-        status,
-        refundReason: status === 'refunded' ? refundReason : pledge.refundReason || '',
-      };
-
-      const updateRes = await fetch(`http://localhost:3000/pledges/${pledgeId}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(updatedPledge),
-      });
-
-      if (updateRes.ok) {
-        alert(`Pledge ${status} successfully!`);
-        loadPledges(currentPage, pledgeStatusFilter.value, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
-      } else {
-        throw new Error(`Failed to update pledge status: ${updateRes.status} ${updateRes.statusText}`);
-      }
-    } catch (error) {
-      console.error('Error updating pledge status:', error.message, error.stack);
-      alert(`Failed to update pledge status: ${error.message}`);
+      console.error('Error loading pledges:', error.message);
+      pledgesTable.innerHTML = `<tr><td colspan="6" class="text-muted">Failed to load pledges: ${error.message}</td></tr>`;
     }
   }
 
@@ -201,37 +198,44 @@ document.addEventListener('DOMContentLoaded', async function () {
     page2Btn.classList.toggle('active', page === 2);
     page3Btn.classList.toggle('active', page === 3);
     prevPageBtn.classList.toggle('disabled', page === 1);
-    nextPageBtn.classList.toggle('disabled', page === 3); 
+    nextPageBtn.classList.toggle('disabled', page === 3);
   }
 
-  // export data as CSV
   async function exportData() {
     try {
       const res = await fetch('http://localhost:3000/pledges');
       if (!res.ok) throw new Error(`Failed to fetch pledges: ${res.status} ${res.statusText}`);
       const pledges = await res.json();
 
-      const csvRows = ['Pledge ID,Campaign,Pledger,Amount,Status,Date,Refund Reason'];
+      const csvRows = ['Pledge ID,Campaign,Pledger,Pledger Email,Amount,Date,Refund Reason,Campaign Category,Campaign Goal,Campaign Creator'];
       for (const p of pledges) {
         let campaignTitle = 'Unknown';
+        let campaignCategory = 'Unknown';
+        let campaignGoal = 'Unknown';
+        let campaignCreator = 'Unknown';
         let pledgerName = 'Unknown';
+        let pledgerEmail = 'Unknown';
         try {
           const campaignRes = await fetch(`http://localhost:3000/campaigns/${p.campaignId}`);
           if (campaignRes.ok) {
             const campaign = await campaignRes.json();
             campaignTitle = campaign.title || 'Untitled';
+            campaignCategory = campaign.category || 'Unknown';
+            campaignGoal = campaign.goal || 0;
+            campaignCreator = campaign.creatorName || 'Unknown';
           }
         } catch (error) {
-          console.warn(`Error fetching campaign ${p.campaignId}:`, error);
+          console.warn(`Error fetching campaign ${p.campaignId}:`, error.message);
         }
         try {
           const userRes = await fetch(`http://localhost:3000/users/${p.userId}`);
           if (userRes.ok) {
             const user = await userRes.json();
             pledgerName = user.name || 'Unknown';
+            pledgerEmail = user.email || 'Unknown';
           }
         } catch (error) {
-          console.warn(`Error fetching user ${p.userId}:`, error);
+          console.warn(`Error fetching user ${p.userId}:`, error.message);
         }
 
         const pledgeDate = p.createdAt ? new Date(p.createdAt).toLocaleDateString() : 'Unknown';
@@ -239,10 +243,13 @@ document.addEventListener('DOMContentLoaded', async function () {
           p.id || 'N/A',
           `"${campaignTitle.replace(/"/g, '""')}"`,
           `"${pledgerName.replace(/"/g, '""')}"`,
+          `"${pledgerEmail.replace(/"/g, '""')}"`,
           p.amount || 0,
-          p.status || 'Unknown',
           pledgeDate,
           `"${(p.refundReason || '').replace(/"/g, '""')}"`,
+          `"${campaignCategory.replace(/"/g, '""')}"`,
+          campaignGoal,
+          `"${campaignCreator.replace(/"/g, '""')}"`,
         ];
         csvRows.push(row.join(','));
       }
@@ -256,76 +263,59 @@ document.addEventListener('DOMContentLoaded', async function () {
       a.click();
       window.URL.revokeObjectURL(url);
     } catch (error) {
-      console.error('Error exporting data:', error.message, error.stack);
+      console.error('Error exporting data:', error.message);
       alert(`Failed to export data: ${error.message}`);
     }
   }
 
-  pledgeStatusFilter.addEventListener('change', () => {
-    loadPledges(1, pledgeStatusFilter.value, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
-  });
-
   campaignFilter.addEventListener('change', () => {
-    loadPledges(1, pledgeStatusFilter.value, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
+    loadPledges(1, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
   });
 
   dateFromInput.addEventListener('change', () => {
-    loadPledges(1, pledgeStatusFilter.value, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
+    loadPledges(1, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
   });
 
   dateToInput.addEventListener('change', () => {
-    loadPledges(1, pledgeStatusFilter.value, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
+    loadPledges(1, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
   });
 
   searchPledgesInput.addEventListener('input', () => {
-    loadPledges(1, pledgeStatusFilter.value, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
+    loadPledges(1, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
   });
 
   exportDataBtn.addEventListener('click', exportData);
 
   prevPageBtn.addEventListener('click', () => {
     if (currentPage > 1) {
-      loadPledges(currentPage - 1, pledgeStatusFilter.value, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
+      loadPledges(currentPage - 1, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
     }
   });
 
   nextPageBtn.addEventListener('click', () => {
-    if (currentPage < 3) { 
-      loadPledges(currentPage + 1, pledgeStatusFilter.value, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
+    if (currentPage < 3) {
+      loadPledges(currentPage + 1, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
     }
   });
 
   page1Btn.addEventListener('click', () => {
-    loadPledges(1, pledgeStatusFilter.value, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
+    loadPledges(1, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
   });
 
   page2Btn.addEventListener('click', () => {
-    loadPledges(2, pledgeStatusFilter.value, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
+    loadPledges(2, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
   });
 
   page3Btn.addEventListener('click', () => {
-    loadPledges(3, pledgeStatusFilter.value, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
+    loadPledges(3, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
   });
 
-  // Confirm refund
-  confirmRefundBtn.addEventListener('click', async () => {
-    if (!currentPledgeId) {
-      console.error('No pledge ID set for confirmation');
-      alert('Error: No pledge selected for refund.');
-      $(refundReasonModal).modal('hide');
-      return;
-    }
-    const refundReason = document.getElementById('refundReason').value.trim();
-    console.log('Confirm refund clicked, pledgeId:', currentPledgeId, 'reason:', refundReason);
-    await updatePledgeStatus(currentPledgeId, 'refunded', refundReason);
-    $(refundReasonModal).modal('hide');
-    document.getElementById('refundReason').value = '';
-    currentPledgeId = null;
+  document.getElementById('logoutBtn').addEventListener('click', function () {
+    localStorage.removeItem('user');
+    window.location.href = '../../pages/auth/login.html';
   });
-
 
   await loadCampaigns();
-  pledgeStatusFilter.value = 'all';
   campaignFilter.value = 'all';
   await loadPledges(1);
 });

@@ -456,3 +456,132 @@
                 border-radius: 0;
             }
         }
+
+
+
+.images-slider {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden; 
+  scroll-behavior: smooth;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; 
+}
+.images-slider::-webkit-scrollbar {
+  display: none; 
+}
+
+.images-slider img {
+  height: 300px; 
+  margin-right: 10px;
+  display: inline-block;
+  object-fit: cover;
+}
+
+
+.progress-bar {
+  position: relative;
+  transition: none; 
+}
+
+.progress-bar.animated {
+  transition: width 1.5s ease-in-out !important;
+}
+
+
+.progress-text, .progress-percentage {
+  position: absolute;
+  color: #fff;
+  font-size: 14px;
+}
+
+.progress-text {
+  left: 10px;
+}
+
+.progress-percentage {
+  right: 10px;
+}
+
+
+.sec8 {
+  background: #f5f5f5; 
+  padding: 20px;
+}
+
+.sec7-background {
+  background: #333; 
+  background-size: cover;
+  background-position: center;
+}
+
+
+
+.images-slider {
+  width: 100%;
+  overflow: hidden; 
+}
+
+.slider-content {
+  display: flex;
+  animation: slide 30s linear infinite; 
+}
+
+.slider-content:hover {
+  animation-play-state: paused; 
+}
+
+.slider-content img {
+  height: 300px; 
+  margin-right: 10px;
+  flex: 0 0 auto;
+  object-fit: cover;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); 
+  }
+}
+
+
+.progress-bar {
+  position: relative;
+  transition: none; 
+}
+
+.progress-bar.animated {
+  transition: width 1.5s ease-in-out !important;
+}
+
+
+.progress-text, .progress-percentage {
+  position: absolute;
+  color: #fff;
+  font-size: 14px;
+}
+
+.progress-text {
+  left: 10px;
+}
+
+.progress-percentage {
+  right: 10px;
+}
+
+
+.sec8 {
+  background: #f5f5f5; 
+  padding: 20px;
+}
+
+.sec7-background {
+  background: #333; 
+  background-size: cover;
+  background-position: center;
+}
+

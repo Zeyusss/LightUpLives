@@ -436,3 +436,76 @@ white-space: nowrap;
     pointer-events: none;
     opacity: 0.5;
 }
+
+/* Burger menu icon */
+.navbar-toggler {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.burger-icon {
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+/* Responsive rules */
+@media (max-width: 991.98px) {
+  /* Hide the regular navbar links */
+  .navbar-collapse {
+    display: none;
+    position: absolute;
+    top: 65px; /* بعد ارتفاع التوب بار والنافبار */
+    left: 0;
+    width: 100%;
+    background-color: var(--color-dark);
+    padding: 20px 0;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .navbar-collapse.show {
+    display: flex;
+  }
+
+
+  .navbar-toggler {
+    display: flex;
+  }
+
+
+  .navbar-nav {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 20px;
+    padding: 8px 16px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-right {
+    display: none !important; 
+  }
+
+  .navbar-left span {
+    color: white;
+    font-size: 24px;
+    margin-left: 10px;
+  }
+
+  .navbar-left img {
+    width: 60px;
+  }
+}

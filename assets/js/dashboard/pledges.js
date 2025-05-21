@@ -280,9 +280,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     loadPledges(1, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
   });
 
-  searchPledgesInput.addEventListener('input', () => {
-    loadPledges(1, campaignFilter.value, dateFromInput.value, dateToInput.value, searchPledgesInput.value);
-  });
 
   exportDataBtn.addEventListener('click', exportData);
 
